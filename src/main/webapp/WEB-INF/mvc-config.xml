@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+
+    <!--<context:component-scan base-package="com.perficient.hr"/>-->
+	
+	<mvc:resources location="/resources/css/" mapping="/css/**" />
+	<mvc:resources location="/resources/js/" mapping="/js/**" />
+	<mvc:resources location="/resources/fonts/" mapping="/fonts/**" />
+	<mvc:resources location="/resources/images/" mapping="/images/**" />
+	<mvc:resources location="/resources/sass_compiled/" mapping="/sass_compiled/**" />
+	<mvc:resources location="/resources/dist/" mapping="/dist/**" />
+	<mvc:resources location="/html/" mapping="/html/**" />
+	<mvc:resources location="/perf-ptd/dist/" mapping="/perf-ptd/dist/**" />
+	
+    <!--<mvc:view-controller path="/" view-name="login" />
+ 	<mvc:view-controller path="/home" view-name="home"/> -->
+
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	    <property name="maxUploadSize" value="50000000"/>
+	</bean>
+	<security:global-method-security pre-post-annotations="enabled"/>
+	<!--<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/v-*/**"/>
+			<mvc:mapping path="/html/*"/>
+       		<bean class="com.perficient.hr.interceptor.SessionInterceptor" />
+       		<bean class="com.perficient.hr.config.CorsInterceptor" />
+   		</mvc:interceptor>
+	</mvc:interceptors>-->
+
+	<bean id="jspViewResolver"
+        class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/html/"/>
+        <property name="suffix" value=".html"/>
+    </bean>
+ 
+</beans>

@@ -1,0 +1,32 @@
+<div class="perfhr-widget" style="min-height: 450px;">
+	<div class="perfhr-widget-header">
+		<h3 class="section-title">Reset Password</h3>
+	</div>
+	<form role="form" ng-init="form={};" class="form-inline" novalidate>
+		<div class="perfhr-widget-content">
+		    <div class="col-md-12 padmobileO">
+		      	<div class="perfhr-filter form-inline wfhfilter">
+				  	<div class="row">
+					    <div class="col-sm-6 col-md-5 col-xs-6">
+					       <label class="control-label required">Employee :</label>
+				           <div class="input-holder col-md-8">
+							<ol class="form-control nya-bs-select" name="Employee" title="Select" data-live-search="true" required validType="select" 
+								 actions-box="true" ng-model="data.employeePk" ng-selected="data.employeePk">
+							  <li nya-bs-option="employee in employees track by employee.pk" data-value="employee.pk">
+							    <a>
+							      {{employee.lastName + ", " + employee.firstName+ "("+employee.employeeId+")"}}
+							      <span class="glyphicon glyphicon-ok check-mark"></span>
+							    </a>
+							  </li>
+							</ol>
+				         </div>
+					   </div>
+					   <div class="col-sm-1 col-xs-6">
+					        <button type="submit" class="btn btn-success margintop25" action="resetPassword">Reset Password</button>
+					   </div>
+				    </div>
+				</div>
+		    </div>
+	    </div>
+    </form>
+</div>

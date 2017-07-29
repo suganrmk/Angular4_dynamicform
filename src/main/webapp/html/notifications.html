@@ -1,0 +1,147 @@
+<div class="perfhr-widget profile-panel">
+	<div class="perfhr-widget-header">
+		<h3 class="section-title">Notifications</h3>
+	</div>
+	<div class="perfhr-widget-content">
+		<div class="row">
+		   	<div class="col-md-6 col-sm-6" style="font-size: 13px !important;">
+		       	<div class="box box-danger box-solid">
+		           	<div class="box-header with-border">
+		               	<h3 class="box-title">PTO Notifications</h3>
+		               	<div class="box-tools pull-right">
+							<ol class="form-control dropdown-danger nya-bs-select" ng-change="loadPTONotifications()" ng-model="ptoSelect">
+							  <li data-value="ptoSel" nya-bs-option="ptoSel in ptoSelectList" data-value="ptoSel.key">
+							    <a>
+							      {{ptoSel.val}}
+							    </a>
+							  </li>
+							</ol>
+			            </div>
+		           	</div>
+		           	<div ng-controller="ptoNotificationTable as ptoTable">
+						<table datatable="" dt-options="ptoTable.dtOptions" dt-columns="ptoTable.dtColumns"
+							 dt-instance="ptoTable.dtInstance" class="table perfhr-table rowClick"></table>
+		           	</div>
+		        </div>
+		    </div>
+		    <div class="col-md-6 col-sm-6" style="font-size: 13px !important;">
+		       	<div class="box box-success box-solid">
+		           	<div class="box-header with-border">
+		               	<h3 class="box-title">WFH Notifications</h3>
+		               	<div class="box-tools pull-right">
+							<ol class="form-control dropdown-success nya-bs-select" ng-change="loadWFHNotifications()" ng-model="wfhSelect">
+							  <li data-value="wfhSel" nya-bs-option="wfhSel in wfhSelectList" data-value="wfhSel.key">
+							    <a>
+							      {{wfhSel.val}}
+							    </a>
+							  </li>
+							</ol>
+			            </div>
+		           	</div>
+		           	<div ng-controller="wfhNotificationTable as wfhTable">
+						<table datatable="" dt-options="wfhTable.dtOptions" dt-columns="wfhTable.dtColumns"
+							 dt-instance="wfhTable.dtInstance" class="table perfhr-table rowClick"></table>
+		           	</div>
+		        </div>
+		    </div>
+	   </div>
+   </div>
+</div>
+<div class="modal fade bs-example-modal-md" id="notificationModal" role="dialog" data-backdrop="static">
+	<div class="modal-dialog modal-dialog modal-md">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<form role="form" class="form-horizontal" novalidate>
+				<div class="modal-header">
+	  				<button type="button" class="close" data-dismiss="modal">&times;</button>
+	  				<h4 class="modal-title">{{leaveData.title}}</h4>
+				</div>
+				<div class="modal-body">
+				  	<div class="box-body">
+		                <div class="form-group">
+		                  <label  class="col-sm-2 control-label">Employee</label>
+		                  <div class="col-sm-10">
+		                    <input class="form-control" disabled value="{{leaveData.employeeNamesView.lastName}}, {{leaveData.employeeNamesView.firstName}}">
+		                  </div>
+		                </div>
+		                <div class="form-group">
+		                  <label  class="col-sm-2 control-label">Leave Type</label>
+		                  <div class="col-sm-10">
+		                    <input class="form-control" disabled value="{{leaveData.requestType}}">
+		                  </div>
+		                </div>
+		                <div class="form-group">
+		                  <label  class="col-sm-2 control-label">Date's</label>
+		                  <div class="col-sm-4">
+		                    <input type="text" class="form-control" uib-datepicker-popup="dd-MMM-yyyy hh:mm" value={{leaveData.startsAt}} ng-model="leaveData.startsAt" 
+	         					disabled datepicker-options="dateOptions"/>
+		                  </div>
+		                  <div class="col-sm-1">
+		                    <label class="col-sm-2 control-label">-</label>
+		                  </div>
+		                  <div class="col-sm-4">
+         					<input type="text" class="form-control" uib-datepicker-popup="dd-MMM-yyyy hh:mm" value={{leaveData.endsAt}} ng-model="leaveData.endsAt" 
+         						disabled datepicker-options="dateOptions"/>
+		                  </div>
+		                </div>
+		                <div class="form-group">
+		                  <label  class="col-sm-2 control-label">Comments</label>
+		                  <div class="col-sm-10">
+		                    <textarea rows="3" class="form-control" disabled>{{leaveData.comments}}</textarea>
+		                  </div>
+		                </div>
+		                <div class="form-group">
+		                  <label  class="col-sm-2 control-label required">Supervisor Comments</label>
+		                  <div class="col-sm-10">
+		                    <textarea name="Supervisor Comments" rows="3" class="form-control" ng-model="leaveData.notifyComments" required 
+		                    	ng-disabled="!isApproveReject" validtype="all-chars" ng-minlength="3" ng-maxlength="500" value="{{leaveData.notifyComments}}"></textarea>
+		                  </div>
+		                </div>
+		            </div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+				  <button type="submit" class="btn btn-save" action="approveNotification" ng-if="isApproveReject">Approve</button>
+				  <button type="submit" class="btn btn-danger" action="rejectNotification" ng-if="isApproveReject">Reject</button>
+				  <button type="button" class="btn btn-warning" ng-click="delegateNotification()" ng-if="isApproveReject">Delegate</button>
+				  <button type="submit" class="btn btn-warning" ng-if="isMarkRead" ng-click="markAsRead()">Mark As Read</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="modal fade bs-example-modal-md" id="delegateModal" role="dialog" data-backdrop="static">
+	<div class="modal-dialog modal-dialog modal-md">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<form role="form" class="form-horizontal" novalidate>
+				<div class="modal-header">
+	  				<button type="button" class="close" data-dismiss="modal">&times;</button>
+	  				<h4 class="modal-title">{{leaveData.title}}</h4>
+				</div>
+				<div class="modal-body">
+				  	<div class="box-body">
+		                <div class="form-group">
+		                  <label  class="col-sm-2 control-label">Delegate To:</label>
+		                  <div class="col-sm-10">
+		                    <ol class="form-control nya-bs-select" name="Delegate To" title="Select" data-live-search="true" required validType="select" 
+								ng-model="leaveData.delegateEmpId" ng-selected="{{leaveData.delegateEmpId}}">
+							  <li nya-bs-option="employee in employees track by employee.pk" data-value="employee.pk">
+							    <a>
+							      {{employee.lastName + ", " + employee.firstName+ "("+employee.employeeId+")"}}
+							      <span class="glyphicon glyphicon-ok check-mark"></span>
+							    </a>
+							  </li>
+							</ol>
+		                  </div>
+		                </div>
+		            </div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+				  <button type="submit" class="btn btn-success" action="delegate">Save</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

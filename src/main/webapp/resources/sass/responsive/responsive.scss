@@ -1,0 +1,604 @@
+@media screen and (min-width:1024px) {
+    .DTFC_LeftWrapper, .DTFC_RightWrapper {
+        display: none;
+    }
+    .dataTables_scrollBody {
+        overflow: visible !important;
+    }
+    div.dataTables_scrollBody table {
+        margin-bottom: 10px !important;
+    }
+    .dataTables_wrapper.no-footer .dataTables_scrollBody {
+        border-bottom: medium none;
+        tr, td, th {
+            border-top: none;
+        }
+    }
+    .DTFC_ScrollWrapper {
+        margin-bottom: 10px;
+    }
+}
+@media screen and (max-width:1024px) {
+    .content-header{
+       display:none;
+    }
+    /*table.table thead th:before {
+       display: inline-block;
+       width: 10px;
+    }*/
+    .DTFC_ScrollWrapper {
+        height: inherit !important;
+    }
+    .modal-header .close {
+        margin-top: 0;
+        opacity: 1;
+        padding-top: 0;
+    }
+    #leaveModal .form-horizontal .form-group {
+        margin: 0;
+    }
+    .dataTables_filter input[type="search"] {
+        display: inline-block;
+        margin: 0;
+        width: 80px;
+    }
+    div.dataTables_filter label {
+        text-align: left;
+        width: 100%;
+    }
+    .dataTables_length select {
+        display: inline-block;
+        padding: 0px;
+    }
+    div.dataTables_length label {
+        width: auto;
+    }
+    div.dataTables_length select {
+        width: 45px;
+    }
+    .parenttree > li > .nodesublist {
+        width: 100%;
+    }
+    .perfhr-table {
+        background: #fff;
+        margin: 0;
+    }
+    .feature {
+        min-height: 220px;
+    }
+    .dt-buttons, .dataTables_wrapper .dataTables_info {
+        display: none;
+    }
+    .calendertitle {
+        font-size: 14px;
+    }
+    .row {
+        margin: 0 -15px;
+    }
+    html.mm-opening .mm-slideout {
+        transform: translate(250px,0px);
+    }
+    .main-sidebar {
+        background: #222d32;
+    }
+    .skin-red .wrapper {
+        background: #ecf0f5;
+    }
+    .navbar-nav {
+        margin: 4.5px 0;
+    }
+    .profile-panel .perfhr-widget-content {
+        padding: 20px 0 15px;
+    }
+    .padmobileO{
+        padding: 0;
+    }
+    .wfhfilter {
+        margin-bottom: 10px;
+        .text-danger {
+		    float: left;
+		    font-size: 11px;
+		    left: 0;
+		    position: relative;
+		    width: 102px;
+		}
+        .control-label {
+            width: auto;
+        }
+        
+        > .row{
+             padding: 0 10px;
+             > div {
+	          padding: 0 5px;
+	       }
+        }
+	
+        .form-control {
+            margin: 0;
+        }
+        .input-holder {
+            width: 100%;
+            padding:0;
+        }
+        .form-group {
+            width: 100%;
+        }
+        .input-group {
+            width: 100%;
+        }
+        .input-holder-sm {
+            width: 100%;
+        }
+        .margintop25{
+            margin-top:25px;
+        }
+        .dropdown-menu {
+		    left: 0;
+		    right: auto;
+		}
+    }
+    .dataTables_paginate .disabled a {
+        background: #565656 none repeat scroll 0 0;
+        color: #cfcfcf;
+        opacity: 0.6;
+    }
+    .sublist {
+        width: 58.8%;
+    }
+    .form-inline .wfhfilter .input-group-btn {
+        width: 1%;
+    }
+    .dataTables_scrollBody tr td:last-child {
+        color: #fff;
+        .btn {
+            background: #fff;
+            border: none;
+        }
+    }
+    .main-header .sidebar-toggle {
+        padding: 25px 15px 15px;
+    }
+    .navbar-nav {
+        margin: 16px 0 0;
+    }
+    .navbar-custom-menu .navbar-nav > li > a {
+        padding-top: 25px;
+    }
+    .dataTables_scrollBody tr td, .dataTables_scrollBody tr th, .dataTables_wrapper td, .dataTables_wrapper th {
+        white-space: nowrap !important;
+    }
+    .dataTables_wrapper th {
+        background-image: inherit !important;
+        &:before, &:after {
+        }
+    }
+    .DTFC_LeftBodyLiner, .DTFC_RightBodyLiner {
+        th.sorting_desc, th.sorting_asc {
+            display: none !important;
+        }
+    }
+    #leaveList .modal-body {
+        padding: 0;
+    }
+    .col-sm-6 .box-solid .dataTables_scrollBody tr td:first-child {
+        color: #222;
+    }
+    #DataTables_Table_0_wrapper .DTFC_LeftWrapper {
+        border: medium none;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        div, td, th {
+            border: medium none;
+            overflow: hidden;
+            min-height: 40px;
+            text-overflow: ellipsis;
+        }
+    }
+    .opeiningscreen.opeiningscreen {
+        position: absolute;
+        top: 15%;
+    }
+    .main-header .navbar .nav>li>a>.label{
+       top:19px;
+    }
+    #leaveReportTable .dataTables_wrapper {
+    padding: 0;
+    }
+}
+@media screen and (max-width:767px) {
+    .main-header .logo {
+        display: none;
+    }
+    body {
+        padding: 0;
+    }
+    .calendertitle {
+        font-size: 14px;
+    }
+    .nxtPreBtns {
+        float: right;
+        margin-bottom: 10px;
+    }
+    .yearbtns {
+        float: left;
+    }
+    .usersviewbtns {
+        float: right;
+    }
+    .header {
+        padding: 6px 10px 6px 30px;
+    }
+    .marggap {
+        display: inline-block;
+        margin: 7px 0;
+        width: 100%;
+    }
+    .calender-holder {
+        padding: 0;
+    }
+    .opeiningscreen.opeiningscreen {
+        min-height: inherit;
+    }
+    body.loginpage {
+        float: left;
+        width: 100%;
+    }
+    .divContainer {
+        margin: 60px 0 0;
+        padding: 0;
+    }
+    .dataTables_wrapper .dataTables_info {
+        display: none;
+    }
+    .content-header {
+        padding: 5px 15px;
+    }
+    .mm-opened .header {
+        margin: 0 -20px;
+    }
+    .cal-context .row {
+        margin: 0;
+    }
+    .cal-year-box [class*="span"] {
+        padding: 0 5px;
+    }
+    .modal.fade.in {
+        left: 0;
+        right: 0;
+        top: 0;
+    }
+    .modal-dialog {
+        width: 90%;
+        margin: 10px auto;
+    }
+    .feature, .feature-2 {
+        padding-bottom: 20px;
+    }
+    .logodiv {
+        margin: 20px auto 0;
+        width: 95%;
+    }
+    .mbt {
+        margin-bottom: 10px;
+    }
+    .registerbody-left form > ul {
+        padding: 0;
+        margin: 0;
+    }
+    .input-divs input[type="text"], .input-divs input[type="password"], .input-divs input[type="email"] {
+        width: 100%;
+    }
+    .user-dashboard-content {
+        margin-left: 0;
+        margin-top: 0;
+        padding: 0 16px;
+        position: static;
+        min-height: 40px;
+        > ol {
+        	list-style-type:none;
+		    white-space:nowrap;
+		    overflow-x:auto;
+		    > li {
+		    	display:inline;
+		    } 	
+        }
+        
+    }
+    .sublist {
+        width: auto;
+    }
+    .dataTables_length {
+        margin: 0;
+    }
+    .dataTables_wrapper .dataTables_filter {
+        margin-top: 0;
+    }
+    .start {
+        margin: 10px 0 0 0;
+    }
+    .calendercontainer .uib-datepicker-popup {
+        left: auto !important;
+    }
+    div.dataTables_filter label {
+        text-align: left;
+    }
+    .dataTables_filter input[type="search"] {
+        margin: 0;
+    }
+    .dataTables_filter {
+        float: right;
+    }
+    div.dataTables_wrapper .dataTables_filter {
+        float: right;
+        margin-top: 0;
+        text-align: left;
+        width: 130px;
+    }
+    .Calendertoprow {
+        float: left;
+        width: 100%;
+    }
+    .main-header {
+        height: 50px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+    }
+    .wrapper {
+        margin: 0px 0 0;
+    }
+    .main-sidebar, .left-side {
+        bottom: 0;
+        left: 0;
+        overflow-x: auto;
+        padding-top: 100px;
+        position: fixed;
+        top: -40px;
+    }
+    .control-sidebar-dark {
+        bottom: 0;
+        overflow-x: auto;
+        padding: 40px 0 0;
+        position: fixed;
+        top: 0;
+    }
+    .wfhfilter .control-label{
+       width:auto;
+    }
+}
+@media screen and (max-width:600px) {
+    .pagination > li > a, .pagination > li > span {
+        padding: 5px 5px;
+    }
+    #leaveModal .form-horizontal .form-group {
+        margin: 0 -15px;
+    }
+    .parenttree > li:last-child .sublist, .parenttree > li .sublist {
+        width: 100%;
+    }
+    .panel.perfhr-panel .leave-title{
+    	font-size: 14px;
+    }
+    .dataTables_wrapper td > .btn{
+	     font-size: 13px;
+	     padding: 0 5px;
+    }
+    .perfhr-table.table tbody tr, table.dataTable tbody td  {
+	    font-size: 12px;
+	    
+	    > td{
+	      padding: 3px 5px;
+	    }
+    }
+}
+@media screen and (max-width:480px) {
+    .cal-row-fluid [class*="cal-cell"] {
+        font-size: 8px;
+    }
+    .cal-month-box .cal-day-today span[data-cal-date] {
+        font-size: 10px;
+    }
+    .calendertitle {
+        font-size: 11px;
+    }
+    .calendercontainer .btn-group {
+        .btn {
+            padding: 3px 7px;
+            font-size: 8px;
+        }
+    }
+    .calendercontainer .modal-body .btn-group .btn {
+        font-size: 14px;
+        padding: 6px;
+    }
+    .event {
+        color: #fff;
+        cursor: pointer;
+        font-size: 7px;
+        font-weight: bold;
+        line-height: 15px;
+        text-transform: capitalize;
+        white-space: nowrap;
+    }
+    .mobilhide {
+        display: none;
+    }
+    .cal-row-head {
+        [class*="cal-cell"]:first-child, [class*="cal-cell"] {
+            padding: 0 4px 0 5px;
+        }
+    }
+    .fullname {
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 54px;
+    }
+    .header {
+        h1 {
+            max-width: 140px;
+            > a {
+                width: 100%;
+            }
+            img {
+                width: 100%;
+            }
+        }
+    }
+    .cal-year-box span[data-cal-date] {
+        font-size: 8px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 33px;
+    }
+    div.dt-buttons {
+        width: 100%;
+        text-align: center;
+    }
+    .dataTables_wrapper {
+        .dataTables_paginate {
+            width: 100%;
+            text-align: center;
+        }
+    }
+    .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter {
+        display: inline-block;
+        text-align: center;
+        > label {
+            width: 100%;
+            text-align: left;
+            .form-control {
+                display: inline-block;
+                float: none;
+            }
+        }
+    }
+    .sublist {
+        width: 100%;
+        .checkbox-inline + .checkbox-inline, .radio-inline + .radio-inline {
+            margin-left: 0;
+        }
+    }
+    .node-tree > .nodesublist {
+        width: auto;
+    }
+    .panel.perfhr-panel .leave-title{
+    	font-size: 15px;
+    }
+    .panel-body {
+        padding: 0px 10px 10px 10px;
+    }
+    .perfhr-table.table tbody tr {
+	    font-size: 12px;
+	    
+	    > td{
+	      padding: 3px 5px;
+	    }
+    }
+    table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTable thead .sorting_desc, table.dataTable thead .sorting_disabled{
+    	font-size:11px;
+    }
+   
+    .ticket-table {
+    	tbody{
+    		font-size:10px;	
+    	} 
+    	thead {
+    		font-size:10px;
+    	}
+    }
+    
+    .wfhfilter {
+       .dropdown-toggle{
+		    font-size: 10px;
+		    height: 32px;
+		    padding: 7px 4px;
+		    
+		    .filter-option span{
+			    float: left;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			    white-space: nowrap;
+			    width: 85%;
+			}
+      }
+     }
+}
+@media screen and (max-width:375px) {
+    .pagination > li > a, .pagination > li > span {
+        font-size: 13px;
+    }
+    .panel-body {
+        padding: 0px 10px 10px 10px;
+    }
+    .panel-success.perfhr-panel > .panel-heading {
+        padding: 11px 9px;
+    }
+    .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter {
+        width: 140px;
+        font-size:12px;
+    }
+    .panel.perfhr-panel .leave-title{
+    	font-size: 12px;
+    }
+    .ticket-table {
+    	tbody{
+    		font-size:10px;	
+    	} 
+    	thead {
+    		font-size:10px;
+    	}
+    }
+}
+@media screen and (max-width:345px) {
+    .pagination > li > a, .pagination > li > span {
+        font-size: 11px;
+    }
+    .panel.perfhr-panel .leave-title{
+    	font-size: 10px;
+    }
+    .pagination > li > a, .pagination > li > span {
+    	padding: 5px 4.6px;
+    }
+    .ticket-table {
+    	tbody{
+    		font-size:10px;	
+    	} 
+    	thead {
+    		font-size:10px;
+    	}
+    }
+    .usersviewbtns{
+       padding:0
+    }
+    .yearbtns{
+       padding-right:0;
+    }
+    .dataTables_filter input[type=search]{
+       width: 50px;
+    }
+    div.dataTables_wrapper .dataTables_filter{
+       width:100px;
+    }
+}
+
+@media(min-width:767px) {
+    .home .feature .feature-content {
+        min-height: 145px;
+        h4 {
+            margin-bottom: 3px;
+            font-size: 18px;
+        }
+        p {
+            line-height: 16px;
+        }
+        .data-section {
+            padding-top: 27px;
+        }
+        .icons-section {
+            align-self:center;
+        }
+    }
+}

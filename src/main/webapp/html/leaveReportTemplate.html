@@ -1,0 +1,92 @@
+<div class="perfhr-filter form-inline wfhfilter">
+  	 <div class="row">
+  	 	<!-- <form role="form" ng-init="form={}; data={}" class="form-inline" novalidate> -->
+			<div class="col-sm-6 col-md-3  col-xs-6">
+		      <div class="form-group date">
+		         <label class="control-label required">From:</label>
+		         <div class="input-holder">
+		          <p class="input-group">
+			         <input type="text" name="From Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" value={{data.startDate}} ng-model="data.startsAt" 
+			         	is-open="stDate.opened" ng-change="onDateChange()"
+		          		id="startDt" datepicker-options="dateOptions" required ng-minlength="11" validType="date" ng-maxlength="11" close-text="Close"/>
+			          <span class="input-group-btn">
+			            <button type="button" class="btn btn-default" ng-click="reportStartDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+			          </span>
+			       </p>
+		   		 </div> 
+		      </div>
+			</div>
+			<div  class="col-sm-6 col-md-3 col-xs-6">
+		      <div class="form-group">
+		         <label class="control-label required">To:</label>
+		         <div class="input-holder">
+		             <p class="input-group">
+			          	<input type="text" name="To Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" value={{data.endDate}} ng-model="data.endsAt" 
+			          		is-open="endDate.opened" ng-change="onDateChange()" 
+			          		id="endDt" datepicker-options="dateOptions" required ng-minlength="11" validType="date" ng-maxlength="11" close-text="Close"/>
+			          	<span class="input-group-btn">
+			            	<button type="button" class="btn btn-default" ng-click="reportEndDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+			          	</span>
+			          </p>
+			   	 </div>
+		      </div>
+		    </div>
+		    <div class="col-sm-6 col-md-5 col-xs-6">
+		       <label class="control-label required">Employee :</label>
+	           <div class="input-holder col-md-8">
+				<ol class="form-control nya-bs-select" name="Employee" title="Select" data-live-search="true" required validType="select" 
+					data-selected-text-format="count" multiple actions-box="true" ng-model="data.employeeReportList" ng-selected="{{data.employeeReportList}}">
+				  <li nya-bs-option="employee in employees track by employee.pk" data-value="employee.pk">
+				    <a>
+				      {{employee.lastName + ", " + employee.firstName+ "("+employee.employeeId+")"}}
+				      <span class="glyphicon glyphicon-ok check-mark"></span>
+				    </a>
+				  </li>
+				</ol>
+	         </div>
+		   </div>
+		   <div class="col-sm-1 col-xs-6">
+		        <button type="submit" class="btn btn-success margintop25" action="searchLeave">Search</button>
+		   </div>
+	   <!-- </form> -->
+   </div>
+</div>
+<div ng-controller="leaveReportControllerTable as leaveTable" id="leaveReportTable">
+	<table datatable="" dt-options="leaveTable.dtOptions" dt-columns="leaveTable.dtColumns" dt-instance="leaveTable.dtInstance" class="table perfhr-table rowClick"></table>
+</div>
+<div class="modal fade bs-example-modal-lg" id="leaveTableList" role="dialog" data-backdrop="static">
+	<div class="modal-dialog modal-dialog modal-lg">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+  				<button type="button" class="close" data-dismiss="modal">&times;</button>
+  				<h4 class="modal-title">{{title}} List</h4>
+			</div>
+			<div ng-controller="leaveSplitUpControllerTable as leaveTable">
+				<table id="consolidatedReport" datatable="" dt-options="leaveTable.dtOptions" dt-columns="leaveTable.dtColumns" dt-instance="leaveTable.dtInstance" class="table perfhr-table"></table>
+			</div>
+			<div class="row">
+			  <div class="col-md-2"></div>
+		      <div class="col-md-8">
+		        <div class="box box-success">
+		          <div class="box-header with-border">
+		            <h3 class="box-title">{{title}} Chart</h3>
+		          </div>
+		          <div class="box-body">
+		            <div class="chart">
+		              <canvas id="bar" class="chart chart-line"
+						  chart-data="leaveSplitdata" chart-labels="labels" chart-series="series" chart-options="options"
+							chart-dataset-override="datasetOverride">
+					  </canvas>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		      <div class="col-md-2"></div>
+		    </div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,217 @@
+ <!-- Main content -->
+ 
+      <!-- /.content -->
+
+       <!-- Main content -->
+      <section class="content">
+        
+    <div class="formContainer">
+         <form [formGroup]="rForm"  *ngIf='PRList' (ngSubmit)="onSubmit(rForm.value)">
+          
+                  <p-accordion>
+                     <p-accordionTab formGroupName="continuosCodeReview"  header="High level requirement" [selected]="true">
+                        <div class="row">
+                         <div class="col-md-6 col-sm-6 col-xs-12">
+                              <div class="form-group">
+                                 <label for="formGroupExampleInput">Who Defines HLR</label>
+                                 <input type="text" class="form-control"  pInputText placeholder="Title (required)"
+                                  [(ngModel)] = "PRList.continuosCodeReview.frequency"
+                                formControlName="frequency" />
+                              </div>
+                           </div>
+							 <div class="col-md-6 col-sm-6 col-xs-12">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Requirement Analysis<br>Method</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
+								 formControlName="TeamReviewpeerReview" >
+							  </div>
+						   </div>
+						   <div class="col-md-6 col-sm-6 col-xs-12">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Requirement Elicitation<br>Method</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
+								 formControlName="TeamReviewpeerReview" >
+							  </div>
+						   </div>
+						   <div class="col-md-6 col-sm-6 col-xs-12">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Requirement Defnition/<br>Representation Method</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
+								 formControlName="TeamReviewpeerReview" >
+							  </div>
+						   </div>
+						   <div class="col-md-6 col-sm-6 col-xs-12">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Requirement Clarification</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
+								 formControlName="TeamReviewpeerReview" >
+							  </div>
+						   </div>
+						   <div class="col-md-6 col-sm-6 col-xs-12">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Requirement Owner</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
+								 formControlName="TeamReviewpeerReview" >
+							  </div>
+						   </div>
+						   <div class="col-md-6 col-sm-6 col-xs-12">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Requirement Repository</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
+								 formControlName="TeamReviewpeerReview" >
+							  </div>
+						   </div>
+						   <div class="col-md-6 col-sm-6 col-xs-12">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Requirement Tracking</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
+								 formControlName="TeamReviewpeerReview" >
+							  </div>
+						   </div>
+						   <div class="col-md-6 col-sm-6 col-xs-12">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Requirement Review</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
+								 formControlName="TeamReviewpeerReview" >
+							  </div>
+						   </div>						
+						</div>
+                        
+                     </p-accordionTab>
+                  </p-accordion>
+				  
+				  
+				  
+				  <p-accordion>
+                     <p-accordionTab formGroupName="continuosCodeReview"  header="Detailed Requirement" [selected]="true">
+                        <div class="row">
+                         <div class="col-md-6 col-sm-6 col-xs-12">
+                              <div class="form-group">
+                                 <label for="formGroupExampleInput">Who Defines Detailed</label>
+                                 <input type="text" class="form-control"  pInputText placeholder="Title (required)"
+                                  [(ngModel)] = "PRList.continuosCodeReview.frequency"
+                                formControlName="frequency" />
+                              </div>
+                           </div>
+							 <div class="col-md-6 col-sm-6 col-xs-12">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Requirement Analysis<br>Method</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
+								 formControlName="TeamReviewpeerReview" >
+							  </div>
+						   </div>
+						   <div class="col-md-6 col-sm-6 col-xs-12">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Requirement Elicitation<br>Method</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
+								 formControlName="TeamReviewpeerReview" >
+							  </div>
+						   </div>
+						   <div class="col-md-6 col-sm-6 col-xs-12">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Requirement Defnition/<br>Representation Method</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
+								 formControlName="TeamReviewpeerReview" >
+							  </div>
+						   </div>
+						   <div class="col-md-6 col-sm-6 col-xs-12">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Requirement Clarification</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
+								 formControlName="TeamReviewpeerReview" >
+							  </div>
+						   </div>
+						   <div class="col-md-6 col-sm-6 col-xs-12">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Requirement Owner</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
+								 formControlName="TeamReviewpeerReview" >
+							  </div>
+						   </div>
+						   <div class="col-md-6 col-sm-6 col-xs-12">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Requirement Repository</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
+								 formControlName="TeamReviewpeerReview" >
+							  </div>
+						   </div>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Requirement Tracking</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
+								 formControlName="TeamReviewpeerReview" >
+							  </div>
+						   </div>
+						   <div class="col-md-6 col-sm-6 col-xs-12">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Requirement Review</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
+								 formControlName="TeamReviewpeerReview" >
+							  </div>
+						   </div>
+						</div>                        
+                     </p-accordionTab>
+                  </p-accordion>
+				  
+				  
+				  <p-accordion>
+                     <p-accordionTab formGroupName="continuosCodeReview"  header="Traceability Matrix" [selected]="true">
+                        <div class="row">
+                         <div class="col-md-6 col-sm-6 col-xs-12">
+                              <div class="form-group">
+                                 <label for="formGroupExampleInput">Requirement Traceability<br>Method</label>
+                                 <input type="text" class="form-control"  pInputText placeholder="Title (required)"
+                                  [(ngModel)] = "PRList.continuosCodeReview.frequency"
+                                formControlName="frequency" />
+                              </div>
+                           </div>
+							 <div class="col-md-6 col-sm-6 col-xs-12">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Traceable Items</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
+								 formControlName="TeamReviewpeerReview" >
+							  </div>
+						   </div>
+						   <div class="col-md-6 col-sm-6 col-xs-12">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Bi-Directional Traceability</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
+								 formControlName="TeamReviewpeerReview" >
+							  </div>
+						   </div>
+						   <div class="col-md-6 col-sm-6 col-xs-12">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Owner</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
+								 formControlName="TeamReviewpeerReview" >
+							  </div>
+						   </div>						
+						</div>                        
+                     </p-accordionTab>
+                  </p-accordion>
+				  
+              
+         </form>
+         </div>
+         
+      </section>
+     

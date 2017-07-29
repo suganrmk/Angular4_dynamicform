@@ -1,0 +1,78 @@
+body{
+    font-size: 14px;
+}
+
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-xs-15 {
+    width: 18.5%;
+    float: left;
+}
+@media (min-width: 768px) {
+.col-sm-15 {
+        width: 18.5%;
+        float: left;
+    }
+}
+@media (min-width: 992px) {
+    .col-md-15 {
+        width: 18.5%;
+        float: left;
+    }
+}
+@media (min-width: 1200px) {
+    .col-lg-15 {
+        width: 18.5%;
+        float: left;
+    }
+}
+
+
+ .applicable{
+    float: right;
+    margin: -48px 0 0 0;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+
+    > input{
+        opacity: 0;
+
+
+    }
+}
+
+input#appli:checked + label .fa {
+    opacity: 1;
+}
+
+
+input#appli2:checked + label .fa {
+    opacity: 1;
+}
+
+
+.ckb {
+      float: right;
+    border: 1px solid #ccc;
+    height: 15px;
+    margin: 1px 0px 0 9px;
+    width: 17px;
+    background: #fff;
+
+
+    > .fa{
+    color: #00a65a;
+    /* border: 1px solid #ccc; */
+    opacity: 0;
+    float: left;
+}
+}

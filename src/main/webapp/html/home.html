@@ -1,0 +1,18 @@
+<div class="homePage-container">
+	<div class="wfmround-links">
+	<div class="icons"><a ng-if="role.taaMn" href="{{ctaUrl}}"><img class="desktop" src="images/talent.png"><img class="mobile" src="images/talent-mobile.png"><span class="caption">Talent Acquisition</span></a></div>
+	<div class="icons"><a href="#/dashboard"><img class="desktop" src="images/workforcemanagement.png"><img class="mobile" src="images/workforcemanagement-mobile.png"><span class="caption">Work Force Management</span></a></div>
+	<div class="icons"><a href="#/profile"><img class="desktop" src="images/myprofile.png"><img class="mobile" src="images/myprofile-mobile.png"><span class="caption">My Profile</span></a></div>
+	<div class="icons"><a href="#/pto"><img class="desktop" src="images/myleavecalendar.png"><img class="mobile" src="images/myleavecalendar-mobile.png"><span class="caption">Leave Calendar</span></a></div>
+	<div class="icons"><a href="#/wfh"><img class="desktop" src="images/wfhcalendar.png"><img class="mobile" src="images/wfhcalendar-mobile.png"><span class="caption">Work From Home Calendar</span></a></div>
+	<div class="icons"><a href="{{tdcUrl}}"><img class="desktop" src="images/training.png"><img class="mobile" src="images/training-mobile.png"><span class="caption">Training and Development</span></a></div>
+	<div class="icons"><a href="#"><img class="desktop" src="images/finance.png"><img class="mobile" src="images/finance-mobile.png"><span class="caption">Finance</span></a></div>
+	<div class="icons"><a href="#/ticket"><img class="desktop" src="images/helpdesk.png"><img class="mobile" src="images/helpdesk-mobile.png"><span class="caption">Help Desk</span></a></div>
+</div>
+</div>
+<script>
+$(document).ready(function(){
+	var images = ['bgOne'];
+	$('.homePage-container').addClass(images[Math.floor(Math.random() * images.length)]);
+});
+</script>

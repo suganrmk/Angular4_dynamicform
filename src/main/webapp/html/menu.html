@@ -1,0 +1,66 @@
+<ul class="sidebar-menu">
+  <!-- <li class="header">MAIN NAVIGATION</li> -->
+  <li class="parent">
+    <a href="#/home">
+      <i class="fa fa-home"></i> <span>Home</span>
+    </a>
+  </li>
+  <li class="parent">
+    <a href="#/dashboard">
+      <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+    </a>
+  </li>
+  <li class="parent"><a href="#/profile"><i class="fa fa-user"></i><span>Profile</span></a></li>
+  <li ng-if="role.mgmtMn" class="treeview parent">
+    <a href="javascript:void(0);">
+      <i class="fa fa-street-view"></i>
+      <span>Management</span>
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    </a>
+    <ul class="treeview-menu">
+    	<li ng-if="role.empPg"><a href="#/employees"><i class="fa fa-users"></i> <span>Employees</span></a></li>
+    	<li ng-if="role.erPg"><a href="#/emproles"><i class="fa fa-user-times"></i>Employee Roles</a></li>
+ 		<li ng-if="role.hdPg"><a href="#/holidays"><i class="fa fa-info"></i>Holidays</a></li>
+ 		<li ng-if="role.mlPg"><a href="#/importpto"><i class="fa fa-upload"></i>Manage Leave</a></li>
+ 		<li ng-if="role.jtPg"><a href="#/designations"><i class="fa fa-user-md"></i>Designation</a></li>
+ 		<li ng-if="role.rlPg"><a href="#/roles"><i class="fa fa-user-secret"></i>Roles</a></li>
+ 		<li  ng-if="role.repMn">
+	        <a href="javascript:void(0);"><i class="fa fa-table"></i> Reports
+	          <span class="pull-right-container">
+	            <i class="fa fa-angle-left pull-right"></i>
+	          </span>
+	        </a>
+	        <ul class="treeview-menu">
+	            <li ng-if="role.jtRepPg"><a href="#/report/jobtitle"><i class="fa fa-code"></i>Designations</a></li>
+	            <li ng-if="role.ebsRepPg"><a href="#/report/ebsreport"><i class="fa fa-code"></i>EBS Reports</a></li>
+				<li ng-if="role.ptoRepPg"><a href="#/report/reports_pto"><i class="fa fa-list"></i>Leave Reports</a></li>
+				<li ng-if="role.wfhRepPg"><a href="#/report/reports_wfh"><i class="fa fa-table"></i>WFH Reports</a></li>
+				<li ng-if="role.tktRepPg"><a href="#/report/reports_ticket"><i class="fa fa-ticket"></i>Tickets Reports</a></li>
+				<!-- <li><a href="#/report/reports_office_entry"><i class="fa fa-sign-in"></i>Office Entry</a></li> -->
+	        </ul>
+        </li>
+    </ul>
+  </li>
+  <li class="treeview parent">
+    <a href="javascript:void(0);">
+      <i class="fa fa-laptop"></i>
+      <span>Administration</span>
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    </a>
+    <ul class="treeview-menu">
+ 		<li><a href="#/projects"><i class="fa fa-database"></i>Projects</a></li>
+ 		<li ng-if="role.pmPg"><a href="#/projectmembers"><i class="fa fa-user-plus"></i>Project Members</a></li>
+ 		<li ng-if="role.sdPg"><a href="#/supportDashboard"><i class="fa fa-ticket"></i><span>Help Desk Dashboard</span></a></li>
+ 		<!-- <li ng-if="role.rstpwdpg"><a href="#/resetPass"><i class="fa fa-key"></i><span>Reset Password</span></a></li> -->
+    </ul>
+  </li>
+  <li class="parent"><a href="#/notifications"><i class="fa fa-envelope-o"></i><span>Notification</span></a></li>
+  <!-- <li ng-if="role.glPg" class="parent"><a href="#/goals"><i class="fa fa-street-view"></i><span>Goals</span></a></li> -->
+  <li class="parent"><a href="#/pto"><i class="fa fa-plane"></i><span>PTO</span></a></li>
+  <li class="parent"><a href="#/wfh"><i class="fa fa-universal-access"></i><span>WFH</span></a></li>
+  <li class="parent"><a href="#/ticket"><i class="fa fa-support"></i><span>Help Desk</span></a></li>
+</ul>

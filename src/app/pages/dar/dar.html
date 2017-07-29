@@ -1,0 +1,60 @@
+<section class="content">
+    <div class="formContainer">
+        <form [formGroup]="rForm" *ngIf='DARList' #form (ngSubmit)="onSubmit()">
+            <p-accordion>
+                <p-accordionTab formGroupName="decisionAnalysisResolutionArtifacts" header="Decision Analysis Resolution Artifacts"
+                                [selected]="true" style="width: 100%;">
+                    <div class="applicable">
+                        <input (click)='chk($event)' id="appli" [(ngModel)]="DARList.decisionAnalysisResolutionArtifacts.applicable"
+                               formControlName="applicable" 
+                               type="checkbox">
+                        <label for="appli">Applicable
+                            <div class="ckb">
+                                <i class="fa fa-check"></i>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group required">
+                                <label for="formGroupExampleInput">Design or Technical Solution</label>
+                                <input type="text" class="form-control" pInputText
+                                       placeholder="Design or Technical Solution(Required)"
+                                       formControlName="designOrTechSolution"
+                                       [(ngModel)]="DARList.decisionAnalysisResolutionArtifacts.designOrTechSolution"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group required">
+                                <label for="formGroupExampleInput">Conflict Management</label>
+                                <input type="text" class="form-control" pInputText
+                                       placeholder="Conflict Management (Required)"
+                                       formControlName="conflictManagement"
+                                       [(ngModel)]="DARList.decisionAnalysisResolutionArtifacts.conflictManagement"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group required">
+                                <label for="formGroupExampleInput">Tool Selection</label>
+                                <input type="text" class="form-control" pInputText
+                                       placeholder="Tool Selection(Required)"
+                                       formControlName="toolSelection"
+                                       [(ngModel)]="DARList.decisionAnalysisResolutionArtifacts.toolSelection"/>
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <input type="submit" class="btn btn-success" value="Save">
+                            <button class="btn btn-default">Cancel</button>
+                        </div>
+                    </div>
+                </p-accordionTab>
+            </p-accordion>
+        </form>
+    </div>
+</section>

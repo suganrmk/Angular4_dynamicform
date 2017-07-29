@@ -1,0 +1,68 @@
+<div class="perfhr-widget" style="min-height: 450px;">
+	<div class="perfhr-widget-header">
+		<h3 class="section-title">EBS Reports</h3>
+	</div>
+	<form role="form" ng-init="form={};" class="form-inline" novalidate>
+		<div class="perfhr-widget-content">
+		    <div class="col-md-12">
+		      	<div class="perfhr-filter form-inline wfhfilter">
+				  	 <div class="row">
+						<div class="col-sm-6 col-md-3  col-xs-12">
+					      <div class="form-group date">
+					         <label class="control-label required">From:</label>
+					         <div class="input-holder">
+					          <p class="input-group">
+						         <input type="text" name="From Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" value={{data.startDate}} ng-model="data.startsAt" 
+						         	is-open="stDate.opened" ng-change="onDateChange()" 
+					          		id="startDt" datepicker-options="dateOptions" required ng-minlength="11" validType="date" ng-maxlength="11" close-text="Close"/>
+						          <span class="input-group-btn">
+						            <button type="button" class="btn btn-default" ng-click="reportStartDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+						          </span>
+						       </p>
+					   		 </div> 
+					      </div>
+						</div>
+						<div  class="col-sm-6 col-md-3 col-xs-12">
+					      <div class="form-group">
+					         <label class="control-label required">To:</label>
+					         <div class="input-holder">
+					             <p class="input-group">
+						          	<input type="text" name="To Date" class="form-control" uib-datepicker-popup="dd-MMM-yyyy" value={{data.endDate}} ng-model="data.endsAt" 
+						          		is-open="endDate.opened" ng-change="onDateChange()" 
+						          		id="endDt" datepicker-options="dateOptions" required ng-minlength="11" validType="date" ng-maxlength="11" close-text="Close"/>
+						          	<span class="input-group-btn">
+						            	<button type="button" class="btn btn-default" ng-click="reportEndDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+						          	</span>
+						          </p>
+						   	 </div>
+					      </div>
+					    </div>
+					    <div class="col-sm-6 col-md-5 col-xs-12">
+					       <label class="control-label required">Employee :</label>
+				           <div class="input-holder col-md-8">
+							<ol class="form-control nya-bs-select" name="Employee" title="Select" data-live-search="true" required validType="select" 
+							  data-selected-text-format="count"	multiple actions-box="true" ng-model="data.employeeReportList" ng-selected="{{data.employeeReportList}}">
+							  <li nya-bs-option="employee in employees track by employee.pk" data-value="employee.pk">
+							    <a>
+							      {{employee.lastName + ", " + employee.firstName+ "("+employee.employeeId+")"}}
+							      <span class="glyphicon glyphicon-ok check-mark"></span>
+							    </a>
+							  </li>
+							</ol>
+				           </div>
+					   </div>
+					   <div class="col-sm-1 col-md-1 col-xs-12">
+					   	  <div class="input-holder">
+					        <button type="submit" class="btn btn-success" action="searchLeave">Search</button>
+					      </div>
+					   </div>
+				   </div>
+				</div>
+				<div ng-controller="ebsReportControllerTable as ebsTable" id="ebsReportTable">
+					<table datatable="" dt-options="ebsTable.dtOptions" dt-columns="ebsTable.dtColumns" 
+						dt-instance="ebsTable.dtInstance" class="table perfhr-table"></table>
+				</div>
+		    </div>
+	    </div>
+    </form>
+</div>

@@ -1,0 +1,115 @@
+<div>
+  <section class="user-dashboard-content">
+	<ol class="breadcrumb" id="userData">
+    </ol>
+  </section>
+  <section class="content">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title">Leave/WFH Chart</h3>
+            <!-- <h3 ng-if="displayBalance" class="box-title">
+            	Leave Balance: 
+            	<span class="currentBal > 0 ?  'text-green': 'text-red'}}">
+		               	<i class="fa currentBal > 0 ?  'fa-angle-up': 'fa-angle-down'}}"></i>{{currentMonth}} {{currentBal}} </span>
+            </h3> -->
+            <div class="box-tools pull-right">
+            	<ol class="form-control nya-bs-select" name="Year" title="Select" validType="select" required 
+            		ng-change="loadChartData()" ng-model="year">
+				  <li data-value="year.year" nya-bs-option="year in yearList track by year.year">
+				    <a>
+				      {{year.year}}
+				    </a>
+				  </li>
+				</ol>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="chart">
+              <canvas id="leaveWfhLineChart" class="chart chart-line" chart-data="leaveSplitdata"
+				chart-labels="labels" chart-series="series" chart-options="options" chart-colors="colors"
+				chart-dataset-override="datasetOverride">
+		      </canvas> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+	      <div class="row">
+	      	<div class="col-md-6">
+		        <div class="box box-primary">
+		          <div class="box-header with-border">
+		            <h3 ng-if="displayBalance" class="box-title">
+			           Leave Balance
+			            <span class="{{leaveBalance > 0 ?  'text-green': 'text-red'}}">
+			               	<i class="fa {{leaveBalance > 0 ?  'fa-angle-up': 'fa-angle-down'}}"></i>{{currentMonth}}: {{currentBal}} </span>
+			            Carried Over:<span class="{{carriedLeaves > 0 ?  'text-green': 'text-red'}}">
+			               	<i class="fa {{carriedLeaves > 0 ?  'fa-angle-up': 'fa-angle-down'}}"></i> {{carriedLeaves}}</span>
+		            </h3>
+		          </div>
+		          <div class="box-body">
+		            <div class="chart">
+		              <canvas id="leaveChart" class="chart chart-doughnut" chart-data="leaveByType" chart-colors="leaveColors" chart-labels="leavelabels">
+					  </canvas> 
+		            </div>
+		          </div>
+		        </div>
+		    </div>
+	      	<div class="col-md-6">
+	        	<div class="box box-primary">
+	          		<div class="box-header with-border">
+	            		<h3 class="box-title">WFH Availed: {{wfhAvailed}}</h3>
+	          		</div>
+		          	<div class="box-body">
+		            	<div class="chart">
+		              		<canvas id="wfhChart" class="chart chart-doughnut" chart-data="wfhByType" chart-colors="wfhColors" chart-labels="wfhlabels">
+					  		</canvas> 
+		            	</div>
+		          	</div>
+		          	<div class="box-footer no-padding">
+		             <ul class="nav nav-pills nav-stacked">
+		               <!-- <li><a href="#">WFH Taken<span class="pull-right {{totalLeaveDays > wfhData[1] ?  'text-green': 'text-red'}}">
+		               		<i class="fa {{totalLeaveDays >= wfhData[1] ?  'fa-angle-up': 'fa-angle-down'}}"></i> {{wfhData[1] / totalLeaveDays}}</span></a>
+		               </li> -->
+		             </ul>
+		           	</div>
+	        	</div>
+	      	</div>
+	      </div>
+      </div>
+    </div>
+    <div class="row">
+    	<div class="col-md-6">
+    		<div class="box box-primary">
+          		<div class="box-header with-border">
+            		<h3 class="box-title">Holiday Calendar</h3>
+            		<div class="box-tools pull-right">
+           			</div>
+          		</div>
+		        <div class="box-body no-padding">
+		            <div ng-controller="holidayCalController as holidayTable" id="holidayTable">
+						<table datatable="" dt-options="holidayTable.dtOptions" dt-columns="holidayTable.dtColumns" dt-instance="holidayTable.dtInstance" 
+							class="table perfhr-table rowClick"></table>
+					</div>
+		        </div>
+       		</div>
+         </div>
+    	<div class="col-md-6">
+    		<div class="box box-primary">
+          		<div class="box-header with-border">
+            		<h3 class="box-title">Reportee's</h3>
+            		<div class="box-tools pull-right">
+           			</div>
+          		</div>
+		        <div class="box-body no-padding">
+		            <div ng-controller="reporteeController as reporteeTable" id="reporteeTable">
+						<table datatable="" dt-options="reporteeTable.dtOptions" dt-columns="reporteeTable.dtColumns" dt-instance="reporteeTable.dtInstance" 
+							class="table perfhr-table rowClick"></table>
+					</div>
+		        </div>
+       		</div>
+         </div>
+    </div>
+  </section>
+</div>

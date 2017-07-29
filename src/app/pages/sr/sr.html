@@ -1,0 +1,67 @@
+<section class="content">
+    <div class="formContainer">
+        <form [formGroup]="rForm" #form (ngSubmit)="onSubmit(rForm.value)">
+            <p-accordion>
+                <p-accordionTab formGroupName="statusReporting" header="Status ReportRisk Management Owner"
+                                [selected]="true" style="width: 100%;">
+                    <div class="applicable">
+                        <input (click)='chk($event)' id="appli" 
+                               formControlName="applicable" 
+                               type="checkbox">
+                        <label for="appli">Applicable
+                            <div class="ckb">
+                                <i class="fa fa-check"></i>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group required">
+                                <label for="formGroupExampleInput">Status Report Pattern - Enable 2.0?</label>
+                                <input type="text" class="form-control" pInputText
+                                       placeholder="Status Report Pattern (Required)"
+                                       formControlName="statusReportPattern"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group required">
+                                <label for="formGroupExampleInput">Status Tracking</label>
+                                <input type="text" class="form-control" pInputText
+                                       placeholder="Status Tracking (Required)"
+                                       formControlName="statusTracking"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group required">
+                                <label for="formGroupExampleInput">Status Communication Mode</label>
+                                <input type="text" class="form-control" pInputText
+                                       placeholder="Status Communication Mode (Required)"
+                                       formControlName="statusCommunicationMode"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group required">
+                                <label for="formGroupExampleInput">PMO Dashboard Update</label>
+                                <input type="text" class="form-control" pInputText
+                                       placeholder="PMO Dashboard Update (Required)"
+                                       formControlName="pmoDashboardUpdate"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <input type="submit" class="btn btn-success" value="Save">
+                            <button class="btn btn-default">Cancel</button>
+                        </div>
+                    </div>
+                </p-accordionTab>
+            </p-accordion>
+        </form>
+    </div>
+</section>

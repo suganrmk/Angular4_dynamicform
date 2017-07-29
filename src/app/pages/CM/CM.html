@@ -1,0 +1,86 @@
+<!-- Main content -->
+     <!-- /.content -->
+
+      <!-- Main content -->
+     <section class="content">
+
+
+
+
+   <div class="formContainer">
+        <form>
+
+       <p-accordion>
+          <p-accordionTab  header="CM Plan" [selected]="true">
+
+             <div class="row">
+              <div class="col-md-4">
+                   <div class="form-group required">
+                      <label for="formGroupExampleInput">Environment Details</label>
+                      <input type="text" class="form-control"  pInputText placeholder="" />
+                     <!--<control-messages [control]="rForm.controls.continuosCodeReview.controls.frequency"></control-messages>-->
+                   </div>
+                </div>
+                  <div class="col-md-4">
+                   <div class="form-group">
+                      <label for="formGroupExampleInput">Configuration Items</label>
+                      <input type="text" class="form-control"  pInputText />
+                   </div>
+                </div>
+             <div class="col-md-4">
+                   <div class="form-group">
+                      <label for="formGroupExampleInput">Baseline Plan</label>
+                      <input type="text" class="form-control"  pInputText />
+                   </div>
+                </div>
+                <div class="col-md-4">
+                   <div class="form-group">
+                      <label for="formGroupExampleInput">Check in & check out procedure </label>
+                      <input type="text" class="form-control"  pInputText />
+                   </div>
+                </div>
+             </div>
+          </p-accordionTab>
+
+          <p-accordionTab   header="Build & Release Process" [selected]="true">
+             <div class="row">
+              <div class="col-md-4">
+                   <div class="form-group required">
+                      <label for="formGroupExampleInput">Build and Release process</label>
+                      <input type="text" class="form-control"  pInputText placeholder="" />
+                     <!--<control-messages [control]="rForm.controls.continuosCodeReview.controls.frequency"></control-messages>-->
+                   </div>
+                </div>
+             </div>
+          </p-accordionTab>
+
+          <p-accordionTab  header="Continuos Integration" [selected]="true">
+             <div class="row">
+              <div class="col-md-4">
+                   <div class="form-group required">
+                      <label for="formGroupExampleInput">Continuos Integration</label>
+                      <input type="text" class="form-control"  pInputText placeholder="" />
+                     <!--<control-messages [control]="rForm.controls.continuosCodeReview.controls.frequency"></control-messages>-->
+                   </div>
+                </div>
+             </div>
+          </p-accordionTab>
+
+          <p-accordionTab   header="Backup & Recovery" [selected]="true">
+             <div class="row">
+              <div class="col-md-4">
+                   <div class="form-group required">
+                      <label for="formGroupExampleInput">Backup & Recovery Plan </label>
+                      <input type="text" class="form-control"  pInputText placeholder="" />
+                     <!--<control-messages [control]="rForm.controls.continuosCodeReview.controls.frequency"></control-messages>-->
+                   </div>
+                </div>
+             </div>
+          </p-accordionTab>
+
+       </p-accordion>
+
+        </form>
+        </div>
+
+     </section>

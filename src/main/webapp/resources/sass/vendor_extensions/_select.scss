@@ -1,0 +1,66 @@
+.ui-select-search{
+	width: 100% !important;
+}
+
+.multiSelect > button{
+    width: 100%;
+}
+
+.multiSelect .checkboxLayer{
+    width: 100%;
+}
+
+.ui-select-container .ui-select-multiple{
+    width: 100%;
+}
+
+.nya-bs-select.btn-group .dropdown-menu.inner{
+	max-height: 200px;
+	overflow: auto;
+}
+
+ol.form-control.nya-bs-select{
+	border: none;
+}
+
+.nya-bs-select .bs-actionsbox, .nya-bs-select .bs-searchbox{
+	padding: 4px 5px 5px;
+}
+
+/*ol.form-control.dropdown-danger div.dropdown-menu,  ol.form-control.dropdown-danger ul.dropdown-menu{
+	background: #dd4b39;
+    background-color: #dd4b39;
+}
+
+ol.form-control.dropdown-danger:hover {
+	background-color: #c9302c;
+    border-color: #ac2925;
+}*/
+ol.form-control.dropdown-danger{
+	div.dropdown-menu, ul.dropdown-menu{
+		background: #dd4b39;
+		background-color: #dd4b39;
+	}
+	li a:focus{
+		background: #dd4b39;
+		background-color: #9a4338;
+	}
+	&:hover{
+		background-color: #c9302c;
+		border-color: #ac2925;
+	}
+}
+
+ol.form-control.dropdown-success{
+	div.dropdown-menu, ul.dropdown-menu{
+		background: #00a65a;
+    	background-color: #00a65a;
+	}
+	li a:focus{
+		background: #00a65a;
+		background-color: #317355;
+	}
+	&:hover{
+		background-color: rgba(85, 193, 136, 0.72);;
+	}
+}

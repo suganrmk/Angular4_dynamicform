@@ -1,0 +1,82 @@
+<div class="perfhr-widget" >
+	<div class="perfhr-widget-header">
+		<h3 class="section-title">Employee Roles Management</h3>
+	</div>
+	<div class="perfhr-widget-content">
+		<form class="form-vertical" novalidate>
+			
+			<div class="row">
+			    <div class="col-md-12">
+			      	<div class="perfhr-filter row">
+			      		<div class="col-md-4 col-sm-5">
+							<div class="form-group">
+							    <label class="control-label required">Roles:</label>
+							    <div class="col-sm-8 input-group splinnputs  col-xs-12 pad0">
+									<ol class="nya-bs-select form-control" name="Role" data-live-search="true" ng-change="onRoleChange()" title="Select" required validType="select"  
+							        	ng-model="data.role" ng-selected="{{data.role}}">
+									  <li nya-bs-option="role in roles track by role.pk">
+									    <a>
+									      {{role.roleName}}
+									      <span class="glyphicon glyphicon-ok check-mark"></span>
+									    </a>
+									  </li>
+									</ol>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-5">
+						    <div class="form-group">
+						    	<label class="control-label required">Employee:</label>
+						    	<div class="col-sm-8 input-group splinnputs  col-xs-12 pad0 zindex-overlap">
+							        <ol class="nya-bs-select form-control" name="Employee" title="Select" data-live-search="true" multiple required validType="select" 
+							        	data-selected-text-format="count" actions-box="true" ng-model="data.employee" ng-selected="{{data.employee}}">
+									  <li nya-bs-option="employee in employeeList | filter : {flag: false}">
+									    <a>
+									      {{employee.lastName+ ", "+employee.firstName+ "("+employee.employeeId+")"}}
+									      <span class="glyphicon glyphicon-ok check-mark"></span>
+									    </a>
+									  </li>
+									</ol>
+								</div>
+						    </div>
+					    </div>
+					    <div class="col-md-1 col-sm-12">
+						    <div class="form-group">
+						    	<div> 
+						    		<button type="submit" class="btn btn-success" ng-if="role.erApBtn" action="applyRoles">Apply Role</button>
+						    	</div>
+						    </div>
+					    </div>
+		    		</div>
+			    </div>
+			</div>
+			<div class="treeview" id="components">
+				<script type="text/ng-template" id="componentTree">
+					<span class="icon glyphicon glyphicon-minus"></span>
+       				<div class="checkbox abc-checkbox abc-checkbox-{{component.cls}} checkbox-inline">
+			    		<input type="checkbox" ng-model="data[component.key]" key="{{component.key}}" class="styled">
+			    		<label>{{component.name}}</label>
+			    	</div>
+					<ul class="nodesublist" ng-if="component.child">
+            			<li class="list-group-item node-tree" ng-repeat="component in component.child"  ng-include="'componentTree'">
+                			
+            			</li>
+        			</ul>
+					<ul ng-if="component.btn" class="sublist" style="list-style-type: none;">
+						<li class="list-group-item  node-tree">
+							<div class="checkbox abc-checkbox abc-checkbox-{{component.cls}} checkbox-inline"
+								ng-repeat="component in component.btn">
+								<input type="checkbox" ng-model="data[component.key]" key="{{component.key}}">
+								<label>{{component.name}}</label>
+							</div>
+						<li>
+					</ul> 
+    			</script>
+			    <ul class="list-group parenttree">
+			        <li class="list-group-item node-tree" ng-repeat="component in components"  ng-include="'componentTree'">
+			        </li>
+			    </ul>
+			</div>
+		</form>
+    </div>
+</div>

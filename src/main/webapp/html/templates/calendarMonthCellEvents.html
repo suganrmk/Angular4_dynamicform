@@ -1,0 +1,32 @@
+<div class="events-list" ng-show="day.events.length > 0">
+  <div
+    ng-repeat="event in day.events | orderBy:'title' | limitTo:4 track by event.$id"
+    href="javascript:;"
+    ng-click=""
+    ng-init="more='+'"
+    class=""
+    ng-class=""
+    ng-mouseenter="vm.highlightEvent(event, false)"
+    ng-mouseleave="vm.highlightEvent(event, false)"
+    mwl-draggable="event.draggable === true"
+    drop-data="{event: event, draggedFromDate: day.date.toDate()}">
+    <div class="pull-left event {{event.cssClass}}" leavePk="{{event.pk}}" ng-if="($index == 0)">{{event.title}}</div>
+    <div class="pull-left event {{event.cssClass}}" leavePk="{{event.pk}}" ng-if="($index == 1)">{{event.title}}</div>
+    <div class="pull-left event {{event.cssClass}}" leavePk="{{event.pk}}" ng-if="($index == 2 && day.events.length == 3)">{{event.title}}</div>
+    <div ng-if="($index == 3)">+{{day.events.length-2+' more...'}}</div>
+  </div>
+</div>
+<!-- <div class="events-list" ng-show="day.events.length > 0">
+  <div
+    ng-repeat="event in day.events | orderBy:'title' | limitTo:3 track by event.$id"
+    href="javascript:;"
+    ng-click=""
+    ng-init="more='+'"
+    class="pull-left event"
+    ng-class="'event-' + event.type + ' ' + event.cssClass"
+    ng-mouseenter="vm.highlightEvent(event, false)"
+    ng-mouseleave="vm.highlightEvent(event, false)"
+    mwl-draggable="event.draggable === true"
+    drop-data="{event: event, draggedFromDate: day.date.toDate()}"><div>{{($index == '2')?more+(day.events.length-2+' more...'):event.title}}</div>
+  </div>
+</div> -->

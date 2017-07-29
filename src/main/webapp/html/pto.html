@@ -1,0 +1,13 @@
+<div class="panel panel-success perfhr-panel" ng-controller="ptoController as scope">
+	<div class="panel-heading">
+		<h1 class="section-title leave-title"><span>Leave Calendar</span><span ng-if="displayLeaveBalance">: Leave Balance = {{leaveBalance}}</span></h1>
+        <ul class="rightsided-element">
+	        <li><button data-toggle="modal" id="applyLeave" ng-click="applyLeave()" >Apply Leave</button></li>
+        </ul>
+	</div>
+	<div class="panel-body calendercontainer">
+		<div class="leaves">
+			<div ng-include src="'html/leaveTemplate.html'"></div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,90 @@
+[
+    {"name":"Administration", "type": "Menu", "key" : "admMn", "cls": "default",
+     "child": [
+     	 {"name":"Projects", "type": "Page", "key" : "prPg" ,"cls": "primary",
+          "btn":[
+                 {"name":"Save", "type":"btn", "key" : "prSvBtn", "cls": "success"}, 
+                 {"name":"Update", "type":"btn", "key" : "prUpBtn", "cls": "warning"},
+                 {"name":"Delete", "type":"btn", "key" : "prDlBtn", "cls": "danger"}
+                ]
+         },
+         {"name":"Project Members", "type": "Page", "key" : "pmPg" ,"cls": "primary",
+          "btn":[
+                 {"name":"Save", "type":"btn", "key" : "pmSvBtn", "cls": "success"}, 
+                 {"name":"Update", "type":"btn", "key" : "pmUpBtn", "cls": "warning"},
+                 {"name":"Delete", "type":"btn", "key" : "pmDlBtn", "cls": "danger"}
+                ]
+         },
+         {"name":"Help Desk Dashboard", "type": "Page", "key" : "sdPg", "cls": "primary",
+          "btn":[
+                 {"name":"Update", "type":"btn", "key" : "sdUpBtn", "cls": "warning"}
+                ]
+         }
+     ]  			    	 
+    },
+    {"name":"Management", "type": "Menu", "key" : "mgmtMn", "cls": "default",
+     "child": [
+     	 {"name":"Employees", "type": "Page", "key" : "empPg", "cls": "primary",
+    	  "btn":[
+                {"name":"Save", "type":"btn", "key" : "empSvBtn", "cls": "success"}, 
+                {"name":"Update", "type":"btn", "key" : "empUpBtn", "cls": "warning"}
+              ]
+         },
+         {"name":"Employee Roles", "type": "Page", "key" : "erPg", "cls": "primary",
+    	  "btn":[
+        	        {"name":"Apply Roles", "type":"btn", "key" : "erApBtn", "cls": "success"}
+    	        ]
+         },
+         {"name":"Holidays", "type": "Page", "key" : "hdPg", "cls": "primary",
+    	  "btn":[
+        	        {"name":"Save", "type":"btn", "key" : "hdSvBtn", "cls": "success"}, 
+        	        {"name":"Update", "type":"btn", "key" : "hdUpBtn", "cls": "warning"},
+        	        {"name":"Delete", "type":"btn", "key" : "hdDlBtn", "cls": "danger"}
+    	        ]
+         },
+         {"name":"Manage Leaves", "type": "Page", "key" : "mlPg", "cls": "primary"},
+         {"name":"Designation", "type": "Page", "key" : "jtPg", "cls": "primary",
+    	  "btn":[
+        	        {"name":"Save", "type":"btn", "key" : "jtSvBtn", "cls": "success"}, 
+        	        {"name":"Update", "type":"btn", "key" : "jtUpBtn", "cls": "warning"},
+        	        {"name":"Delete", "type":"btn", "key" : "jtDlBtn", "cls": "danger"}
+    	        ]
+         },
+    	 {"name":"Roles", "type": "Page", "key" : "rlPg" ,"cls": "primary",
+          "btn":[
+                 {"name":"Save", "type":"btn", "key" : "rlSvBtn", "cls": "success"}, 
+                 {"name":"Update", "type":"btn", "key" : "rlUpBtn", "cls": "warning"},
+                 {"name":"Delete", "type":"btn", "key" : "rlDlBtn", "cls": "danger"}
+                ]
+         },
+         {"name":"Reports", "type": "Menu", "key" : "repMn", "cls": "default",
+          "child": [
+          	{"name":"Designations", "type": "Page", "key" : "jtRepPg", "cls": "primary"},
+          	{"name":"EBS Reports", "type": "Page", "key" : "ebsRepPg", "cls": "primary"},
+          	{"name":"Leave Reports", "type": "Page", "key" : "ptoRepPg", "cls": "primary"},
+          	{"name":"WFH Reports", "type": "Page", "key" : "wfhRepPg", "cls": "primary"},
+          	{"name":"Tickets Reports", "type": "Page", "key" : "tktRepPg", "cls": "primary"}
+          ]
+         }
+       ]	    			    	 
+    },
+    {"name":"PTO", "type": "Page", "key" : "ptoPg", "cls": "primary",
+	  "btn":[
+    	        {"name":"Update", "type":"btn", "key" : "ptoUpBtn", "cls": "warning"},
+    	        {"name":"Delete", "type":"btn", "key" : "ptoDlBtn", "cls": "danger"}
+	        ]
+    },
+    {"name":"WFH", "type": "Page", "key" : "wfhPg", "cls": "primary",
+	  "btn":[
+    	        {"name":"Update", "type":"btn", "key" : "wfhUpBtn", "cls": "warning"},
+    	        {"name":"Delete", "type":"btn", "key" : "wfhDlBtn", "cls": "danger"}
+	        ]
+    },
+    {"name":"Finance", "type": "Menu", "key" : "finMn", "cls": "default",
+      "child": [
+     	 {"name":"Finance Window", "type": "Page", "key" : "itruwin" ,"cls": "primary"},
+     	 {"name":"IT Decl", "type": "Page", "key" : "itrrept" ,"cls": "primary"}
+      ]	    			    	 
+    },
+    {"name":"Talent Aquisistion", "type": "Menu", "key" : "taaMn", "cls": "default"}
+]

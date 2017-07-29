@@ -1,0 +1,221 @@
+<div class="modal fade" id="ticketForm" role="dialog" data-backdrop="static">
+	<div class="modal-dialog modal-lg">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<form role="form" class="form-horizontal" novalidate>
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title" ng-show="!data.pk" id="myModalLabel">Save Ticket</h4>
+					<h4 class="modal-title" ng-show="data.pk" id="myModalLabel">Update Ticket</h4>
+				</div>
+			    <div class="modal-body" style="max-height: 450px; overflow: auto;">
+			    	<div class="row">
+				      <div class="col-sm-6 col-lg-6">
+				         <div class="form-group">
+					         <label class="col-md-4 control-label required">Location:</label>
+				             <div class="col-md-8">
+								<ol class="nya-bs-select form-control" name="Location" title="Select" required validType="select" 
+						        	disabled="!isUpdate" actions-box="true" ng-model="data.location" ng-selected="{{data.location}}">
+								  <li class="nya-bs-option" data-value="CHEOP-5">
+								    <a>CHEOP-5</a>
+								  </li>
+								  <li class="nya-bs-option" data-value="CHEOP-8">
+								    <a>CHEOP-8</a>
+								  </li>
+								  <li class="nya-bs-option" data-value="BLRPF-1">
+								    <a>BLRPF-1</a>
+								  </li>
+								</ol>
+				             </div>
+		   		         </div>
+		   		       </div>
+		   		       <div class="col-sm-6 col-lg-6">
+		   		         <div class="form-group">
+					         <label class="col-md-4 control-label required">Type:</label>
+				             <div class="col-md-8">
+								<ol class="nya-bs-select form-control" name="Type" title="Select" required validType="select" 
+						        	disabled="!isUpdate" actions-box="true" ng-model="data.issueType" ng-selected="{{data.issueType}}">
+								  <li class="nya-bs-option" data-value="HARDWARE">
+								    <a>Hardware</a>
+								  </li>
+								  <li class="nya-bs-option" data-value="SOFTWARE">
+								    <a>Software</a>
+								  </li>
+								  <li class="nya-bs-option" data-value="Network">
+								    <a>Network</a>
+								  </li>
+								  <li class="nya-bs-option" data-value="WFM_Application">
+								    <a>WFM Application</a>
+								  </li>
+								</ol>
+				             </div>
+		   		         </div>
+		   		       </div>
+		   		     </div>
+		   		     <div class="row">
+				      <div class="col-sm-6 col-lg-6">
+				      	<div class="form-group" ng-if="isSupport">
+					         <label class="col-md-4 control-label required">Priority:</label>
+				             <div class="col-md-8">
+								<ol class="nya-bs-select form-control" name="Priority" title="Select" required validType="select" 
+						        	disabled="!isUpdate" actions-box="true" ng-model="data.priority" ng-selected="{{data.priority}}">
+								  <li class="nya-bs-option" data-value="Critical">
+								    <a>Critical</a>
+								  </li>
+								  <li class="nya-bs-option" data-value="Major">
+								    <a>Major</a>
+								  </li>
+								  <li class="nya-bs-option" data-value="Minor">
+								    <a>Minor</a>
+								  </li>
+								</ol>
+				             </div>
+		   		         </div>
+				      </div>
+				      <div class="col-sm-6 col-lg-6">
+				      	<div class="form-group" ng-if="isSupport">
+					        <label class="col-md-4 control-label">Assign To:</label>
+							<div class="col-md-8">
+								<ol class="form-control nya-bs-select" name="Assign To" title="Select" data-live-search="true" validType="select" 
+									disabled="!isUpdate" ng-model="data.assignedTo" ng-selected="{{data.assignedTo}}">
+								  <li nya-bs-option="employee in employees track by employee.pk" data-value="employee.pk">
+								    <a>
+								      {{employee.lastName + ", " + employee.firstName+ "("+employee.employeeId+")"}} 
+								      <span class="glyphicon glyphicon-ok check-mark"></span>
+								    </a>
+								  </li>
+								</ol>
+							</div>
+				         </div>
+				      </div>
+				     </div>
+				     <div class="row">
+				      <div class="col-sm-6 col-lg-6">
+				      	<div class="form-group" ng-if="isSupport">
+					         <label class="col-md-4 control-label">Status:</label>
+				             <div class="col-md-8">
+								<ol class="nya-bs-select form-control" name="Type" title="Select" required validType="select" 
+						        	disabled="!isUpdate" actions-box="true" ng-model="data.status" ng-selected="{{data.status}}">
+								  <li class="nya-bs-option" data-value="OPEN">
+								    <a>Open</a>
+								  </li>
+								  <li class="nya-bs-option" data-value="InProgress">
+								    <a>In Progress</a>
+								  </li>
+								  <li class="nya-bs-option" data-value="Closed">
+								    <a>Closed</a>
+								  </li>
+								</ol>
+				             </div>
+		   		         </div>
+				      </div>
+				      <div class="col-sm-6 col-lg-6">
+				      	<div class="form-group" ng-if="isSupport">
+							<label class="col-md-4 control-label">Issue Closed:</label>
+			                <p class="input-group col-md-8">
+					          <input type="text" id="closedOn" class="form-control" name="Issue Closed" uib-datepicker-popup="dd-MMM-yyyy" value={{data.closeDate}} 
+					          		ng-disabled="!isUpdate" ng-model="data.closedOn" is-open="closeDate.opened" 
+					          		id="closeDt" datepicker-options="dateOptions" validType="date" ng-minlength="11" ng-maxlength="11" close-text="Close"/>
+					          <span class="input-group-btn">
+					            <button ng-disabled="!isUpdate" type="button" class="btn btn-default" ng-click="tkCloseDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+					          </span>
+					        </p>
+						 </div>
+				      </div>
+				     </div>
+		   		     <div class="row">
+		   		       <div class="col-md-12">
+		   		         <div class="form-group">
+		                    <label  class="col-md-2 control-label required">Description:</label>
+		                    <div class="col-md-10">
+		                       <textarea rows="3" name="Description" ng-minlength="3" ng-maxlength="100" class="form-control" validtype="all-chars" 
+		                       		ng-disabled="!isUpdate" ng-model="data.description" value="{{data.description}}" required></textarea>
+		                    </div>
+		                 </div>
+		                 <div class="form-group" ng-if="data.ticketAttachments.length">
+		                 	<label  class="col-md-2 control-label">Attachments:</label>
+		                 	<div class="col-md-10">
+		                 		<table class="table table-responsive table-striped table-bordered">
+		                 			<thead  class="thead-inverse">
+									    <tr>
+									      <th style="width:150px;">Name</th>
+									      <th>Comment</th>
+									      <th style="width:150px;">Added On</th>
+									      <th ng-if="isUpdate" style="text-align:center;width:50px;">#</th>
+									    </tr>
+								    </thead>
+								    <tbody>
+			                 			<tr ng-repeat="attachment in data.ticketAttachments | orderBy: 'dtCreated'" id="attach-{{attachment.pk}}">
+			                 				<td>{{attachment.employeeNamesView.lastName}}, {{attachment.employeeNamesView.firstName}}</td>
+			                 				<td>
+			                 					<div><a href="v-file/downloadTicketAttachment/{{attachment.ticketId}}/{{attachment.pk}}">{{attachment.fileName}}</a></div>
+			                 				</td>
+			                 				<td>{{attachment.dtCreated | date:'dd-MMM-yyyy hh:mm a'}}</td>
+			                 				<td ng-if="isUpdate">
+			                 					<button ng-if="currentUserPk == attachment.createdBy" ng-click="deleteAttachment(attachment.pk, attachment.ticketId)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+			                 				</td>
+			                 			</tr>
+		                 			</tbody>
+		                 		</table>
+		                    </div>
+		                 </div>
+		                 <div class="form-group" ng-if="isUpdate">
+		                 	<label class="col-md-2 control-label">Upload:</label>
+		                 	<div class="col-md-10">
+		                       <div class="input-group import">
+		                          <label class="input-group-btn">
+		                               <span class="btn btn-primary">
+		                                   Browse&hellip; <input type="file" name="File" validType="all-chars" class="filestyle" 
+		                                   	file-model="$parent.uploadTicketDoc" style="display: none;"/>
+		                               </span>
+		                           </label>
+		                           <input type="text" class="form-control inputfile" readonly>
+		                       </div>
+		                 	</div>
+		                 </div>
+					   </div>
+	   		       </div>
+	   		       <div class="row">
+	   		       	<div class="col-md-12">
+					 <div class="form-group" ng-if="data.ticketComments.length">
+	                   <label  class="col-md-2 control-label">Comments:</label>
+	                   <div class="col-md-10">
+	                     <table class="table table-responsive table-striped table-bordered">
+	                     	<thead  class="thead-inverse">
+							    <tr>
+							      <th style="width:150px;">Name</th>
+							      <th>Comment</th>
+							      <th style="width:150px;">Added On</th>
+							      <th ng-if="isUpdate" style="text-align:center;width:50px;">#</th>
+							    </tr>
+						    </thead>
+						    <tbody>
+		                     	<tr ng-repeat="cmts in data.ticketComments | orderBy: 'dtCreated'" id="cmt-{{cmts.pk}}">
+		                     		<td>{{cmts.employeeNamesView.lastName}}, {{cmts.employeeNamesView.firstName}}</td>
+		                     		<td>{{cmts.comment}}</td>
+		                     		<td>{{cmts.dtCreated | date:'dd-MMM-yyyy hh:mm a'}}</td>
+		                     		<td ng-if="isUpdate">
+		                     			<button ng-if="currentUserPk == cmts.createdBy" ng-click="deleteComment(cmts.pk, cmts.ticketId)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+		                     		</td>
+		                     	</tr>
+	                     	</tbody>
+	                     </table>
+	                   </div>
+	                 </div>
+	   		         <div ng-if="isUpdate" class="form-group" ng-show="data.pk">
+	                   <label  class="col-md-2 control-label">Comment:</label>
+	                   <div class="col-md-10">
+	                     <textarea rows="3" class="form-control" ng-model="data.comments" ng-minlength="3" ng-maxlength="150"
+	                     	validtype="all-chars" name="Comment"></textarea>
+	                   </div>
+	                 </div>
+	               </div>
+   		         </div>
+			    </div>
+			    <div class="modal-footer">
+			    	<button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

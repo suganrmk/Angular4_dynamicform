@@ -1,0 +1,169 @@
+.main-header {
+  position: relative;
+  max-height: 100px;
+  z-index: 1030;
+}
+
+.main-header .logo {
+  width: 70px;
+  color: #fff;
+  text-align: center;
+  font-size: 22px;
+  padding: 10px 0;
+  background: #008749;
+  font-weight: bold;
+  float: left;
+}
+
+header {
+  background-color: #00a65a;
+  display: inline-block;
+  width: 100%;
+}
+header .navbar {
+  display: inline-block;
+  padding: 13px;
+  width: calc(100% - 80px);
+}
+
+html, body, .wrapper {
+  min-height: 100%;
+}
+
+.sidebar-menu {
+  list-style: none;
+  margin: 0;
+  background-color: #222d32;
+  padding: 0;
+}
+.sidebar-menu > li {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+.sidebar-menu > li a {
+  color: #b8c7ce;
+  padding: 8.74px 11px;
+  border-bottom: 1px solid #353f44;
+  width: 100%;
+  display: inline-block;
+}
+.sidebar-menu > li a label {
+  margin: 0;
+}
+
+.content-wrapper {
+  width: calc(100% - 70px);
+  float: right;
+  padding: 20px;
+}
+
+.main-sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding-top: 50px;
+  min-height: 100%;
+  width: 70px;
+  z-index: 810;
+  transition: width 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+ul.rightMenu {
+  float: right;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  list-style: none;
+}
+ul.rightMenu li {
+  float: left;
+  margin: 0 0 0 20px;
+}
+ul.rightMenu li a {
+  float: left;
+  color: #fff;
+}
+ul.rightMenu li a i {
+  margin: 0 4px 0 0;
+}
+
+.pageTitle {
+  font-size: 18px;
+  color: #fff;
+}
+.pageTitle i {
+  font-size: 19px;
+  margin: 0 8px 0 0;
+}
+
+.ui-dropdown {
+  width: 100% !important;
+}
+
+p-accordiontab {
+  float: left;
+  width: 49.5%;
+}
+p-accordiontab .col-md-4 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+p-accordiontab .form-control {
+  float: right;
+  width: 61%;
+}
+
+p-accordiontab + p-accordiontab {
+  margin-left: 10px;
+}
+
+body .ui-accordion .ui-accordion-content {
+  padding: 1.25em;
+  min-height: 290px;
+}
+
+body {
+  font-size: 14px;
+}
+
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.col-xs-15 {
+  width: 20%;
+  float: left;
+}
+
+@media (min-width: 768px) {
+  .col-sm-15 {
+    width: 20%;
+    float: left;
+  }
+}
+@media (min-width: 992px) {
+  .col-md-15 {
+    width: 20%;
+    float: left;
+  }
+}
+@media (min-width: 1200px) {
+  .col-lg-15 {
+    width: 20%;
+    float: left;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

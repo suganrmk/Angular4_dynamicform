@@ -1,0 +1,136 @@
+ <!-- Main content -->
+
+      <section class="content">
+         <div class="TopSection">
+       <pre>    {{rForm.value.Frequency}}</pre>
+        
+               <form [formGroup]="myform">
+                  <div class="row">
+                     <div class="col-md-15">
+                        <div class="form-group">
+                           <label for="Project">Project</label>
+                          <p-dropdown [options]="CamMembers" formControlName="Project" [filter]="true"></p-dropdown>
+                           
+                        </div>
+                     </div>
+                     <div class="col-md-15">
+                        <div class="form-group">
+                           <label for="CAM 1">CAM 1</label>
+                          <p-dropdown [options]="CamMembers" formControlName="Cam1" [filter]="true"></p-dropdown>
+                        </div>
+                     </div>
+                    <div class="col-md-15">
+                        <div class="form-group">
+                           <label for="CAM 2">CAM 2</label>
+                           <p-dropdown [options]="CamMembers" formControlName="Cam2"  [filter]="true"></p-dropdown>
+                        </div>
+                     </div>
+                     <div class="col-md-15">
+                        <div class="form-group">
+                           <label for="formGroupExampleInput2">SEPG Approver</label>
+                           <p-dropdown [options]="CamMembers" formControlName="SEPGApprover"  [filter]="true"></p-dropdown>
+                           
+                        </div>
+                     </div>
+                     <div class="col-md-15">
+                        <div class="form-group">
+                           <label for="formGroupExampleInput2">Account</label>
+                             <p-dropdown [options]="CamMembers" formControlName="AccountName"  [filter]="true"></p-dropdown>
+                        </div>
+                     </div>
+                  </div>
+               </form>
+          
+         </div>
+    
+    <div class="formContainer">
+         <form [formGroup]="rForm" (ngSubmit)="onSubmit(rForm.value)">
+          
+                  <p-accordion>
+                     <p-accordionTab header="Change Request" [selected]="true">
+                        <div class="row">
+                           <div class="col-md-4">
+                              <div class="form-group">
+                                 <label for="formGroupExampleInput">Scope Change Tracking</label>
+                                 <input type="text" class="form-control"   pInputText formControlName="Frequency" placeholder="">
+                              </div>
+                           </div>
+                           <div class="col-md-4">
+                              <div class="form-group">
+                                 <label for="formGroupExampleInput">Owner</label>
+                                 <input type="text" class="form-control"  pInputText formControlName="TeamReviewpeerReview" placeholder="">
+                              </div>
+                           </div>
+                           <div class="col-md-4">
+                              <div class="form-group">
+                                 <label for="formGroupExampleInput">Change Approver</label>
+                                 <input type="text" class="form-control"  pInputText formControlName="GDCReview"  >
+                              </div>
+                           </div>
+
+                           
+                           <div class="col-md-4">
+                              <div class="form-group">
+                                 <label for="formGroupExampleInput">Backlog Update</label>
+                                 <input type="text" class="form-control"  pInputText formControlName="EnableReview"  placeholder="">
+                              </div>
+                           </div>
+                           <div class="col-md-4">
+                              <div class="form-group">
+                                 <label for="formGroupExampleInput">Change  during middle of the sprint</label>
+                                 <input type="text" class="form-control"  pInputText formControlName="ReviewComentTracking"  placeholder="">
+                              </div>
+                           </div>
+                           <div class="col-md-4">
+                              <div class="form-group">
+                                 <label for="formGroupExampleInput">Impact will include</label>
+                                 <input type="text" class="form-control"  pInputText formControlName="Automation"  placeholder="">
+                              </div>
+                           </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                 <label for="formGroupExampleInput">Scope change managed by GDC</label>
+                                 <input type="text" class="form-control"  pInputText formControlName="Automation"  placeholder="">
+                              </div>
+                           </div>
+                        </div>
+                        
+                     </p-accordionTab>
+                     <p-accordionTab [selected]="true" header="Change Log">
+                        <div class="row">
+                           <div class="col-md-4">
+                              <div class="form-group">
+                                 <label for="formGroupExampleInput">Change Log Management:</label>
+                                 <input type="text" class="form-control"  pInputText formControlName="ReviewTaskTracking" placeholder="">
+                              </div>
+                           </div>
+                           <div class="col-md-4">
+                              <div class="form-group">
+                                 <label for="formGroupExampleInput">Change Log Owner:</label>
+                                 <input type="text" class="form-control"  pInputText formControlName="ReviewCriteria" placeholder="">
+                              </div>
+                           </div>
+                           <div class="col-md-4">
+                              <div class="form-group">
+                                 <label for="formGroupExampleInput">Change Log Approver</label>
+                                 <input type="text" class="form-control" pInputText formControlName="ReviewPlanTracking"  placeholder="">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-md-12 text-right">
+                           <input type="submit" class="btn btn-success"  value="Save" >
+                          <button class="btn btn-default">Cancel</button>
+                          
+                        </div>
+                        </div>
+
+                     </p-accordionTab>
+                  </p-accordion>
+              
+         </form>
+         </div>
+         <!--<br>
+      <div class="col-md-12"> <pre>ssssss{{rForm.value | json}}</pre></div>-->
+      </section>
+      <!-- /.content -->

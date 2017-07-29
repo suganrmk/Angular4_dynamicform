@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Perficient Chennai - WFM</title>
+	<link rel="shortcut icon" type="image/x-icon" href="images/p.png" />
+	<link rel="stylesheet" href="css/login.min.css">
+	<script src="js/dev/login.min.js"></script>
+	<script src="js/constants/constants.js"></script>
+</head>
+<body class="loginpage">
+	<section>
+	<div class="carousel slide carousel-fade" data-ride="carousel">
+	<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<div class="item active"></div>
+			<div class="item"></div>
+			<div class="item"></div>
+			<div class="item"></div>
+			<div class="item"></div>
+			<div class="item"></div>
+			<div class="item"></div>
+		</div>
+	</div>
+	<div class="opeiningscreen">
+		<div class="logodiv">
+			<div class="center col-md-12 visible-xs">
+				<img src="images/logo-xs.png" alt="Perficient Logo">
+			</div>
+			<div class="center col-md-12 hidden-xs">
+				<img src="images/logo-md.png" alt="Perficient Logo">
+			</div>
+			<div class="registerbody opacityanim">
+				<div class="registerbody-left  col-xs-12">
+					<form name="loginForm" onsubmit="return submitLogin()">
+						<ul>
+							<li>
+								<div class="form-group">
+									<label class="animatetoptobottom">Perficient UserName/Email</label>
+									<div class="input-divs animatetoptobottom">
+										<input type="text" id="username" name="username" class="form-control" 
+											placeholder="Enter username" autofocus="true"  required>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="form-group">
+									<div class="icnholder"><i class="regisr regit4"></i></div>
+									<label class="animatetoptobottom">Password:</label>
+									<div class="input-divs animatetoptobottom">
+										<input type="password" id="password" name="password" class="form-control" 
+											placeholder="Enter password" required>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="rememberMe">
+									<input type="checkbox" id="rememberMe" value="0"/>
+									<span>Remember Me</span>
+								</div>
+							</li>
+							<li>
+								<a data-toggle="modal" class="forgetText" data-target="#forgetpass">Forgot Password?</a>
+								<div class="form-group text-center">
+									<input id="login" type="button" class="btn btn-primary" value="Log In" />
+								</div>
+							</li>
+						</ul>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<div id="forgetpass" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Request New Password</h4>
+      </div>
+      <div class="modal-body">
+        <input class="form-control class="col-md-6" placeholder="Enter your Email address" id="forgotPwdEmail" type="text">
+        <input class="btn btn-primary" value="Submit" type="submit" id="forgotPwd">
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+ <!-- Main content -->
+ 
+      <!-- /.content -->
+
+       <!-- Main content -->
+      <section class="content">
+        
+    <div class="formContainer">
+         <form [formGroup]="rForm"  *ngIf='PRList' (ngSubmit)="onSubmit(rForm.value)">
+          
+                  <p-accordion>
+                     <p-accordionTab formGroupName="handOffEntity"  header="Hand-Off" [selected]="true">
+                                              <div class="applicable">
+  <input (click)='chk($event)' id="appli"  [(ngModel)] = "PRList.handOffEntity.applicable"   formControlName="applicable" [checked]="PRList.handOffEntity.applicable" type="checkbox">
+  <label for="appli">Applicable
+    <div class="ckb">
+    <i class="fa fa-check"></i>
+    </div>
+  </label>
+</div>
+                        <div class="row">
+                         <div class="col-md-4">
+                              <div class="form-group">
+                                 <label for="formGroupExampleInput">Hand-off<br>Responsibility GDC?</label>
+                                 <input type="text" class="form-control"  pInputText placeholder="Title (required)"
+                                  [(ngModel)] = "PRList.handOffEntity.hoResponsibilityGDC"
+                                formControlName="hoResponsibilityGDC" />
+                              </div>
+                           </div>
+							 <div class="col-md-4">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Manual or Help<br>Document</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.handOffEntity.manualHelpDoc"
+								 formControlName="manualHelpDoc" >
+							  </div>
+						   </div>						   
+						</div>                        
+                     </p-accordionTab>
+
+                       <p-accordionTab formGroupName="knowledgeTransferEntity"  header="Knowledge Transfer" [selected]="true">
+                       <div class="applicable">
+  <input (click)='chk($event)' id="appli2"  [(ngModel)] = "PRList.knowledgeTransferEntity.applicable"   formControlName="applicable" [checked]="PRList.knowledgeTransferEntity.applicable" type="checkbox">
+  <label for="appli2">Applicable
+    <div class="ckb">
+    <i class="fa fa-check"></i>
+    </div>
+  </label>
+</div>
+                        <div class="row">
+                         <div class="col-md-4">
+                              <div class="form-group">
+                                 <label for="formGroupExampleInput">Knowledge Transfer<br>Mode</label>
+                                 <input type="text" class="form-control"  pInputText placeholder="Title (required)"
+                                  [(ngModel)] = "PRList.knowledgeTransferEntity.knowledgeTransferMode"
+                                formControlName="knowledgeTransferMode" />
+                              </div>
+                           </div>
+							 <div class="col-md-4">
+							  <div class="form-group">
+								 <label for="formGroupExampleInput">Defined as part of<br>Iteration/Release<br>Planning in Backlog</label>
+								 <input type="text" class="form-control"  pInputText 
+								 [(ngModel)] = "PRList.knowledgeTransferEntity.teamPeerReview"
+								 formControlName="resourcePlanningBacklog" >
+							  </div>
+						   </div>
+            </div>         
+              
+               <div class="row">
+                        <div class="col-md-12 text-right">
+                           <input type="submit" class="btn btn-success"  value="Save" >
+                          <button class="btn btn-default">Cancel</button>
+                          
+                        </div>
+                        </div>
+                     </p-accordionTab>
+
+
+                  </p-accordion>
+				  
+							  
+              
+         </form>
+         </div>
+         
+      </section>
+     

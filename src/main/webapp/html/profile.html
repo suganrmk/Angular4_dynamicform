@@ -1,0 +1,114 @@
+<div class="perfhr-widget profile-panel">
+	<div class="perfhr-widget-header">
+		<h3 class="section-title">Profile</h3>
+		<ul ng-if="data.adlogin == true" class="rightsided-element">
+        	<li>
+        		<button data-toggle="modal" ng-click="updPwd()"><i class="fa fa-plus"></i>Update Password</button>
+        	</li>
+        </ul>
+	</div>
+	<form role="form" ng-init="form={}; data={}" class="form-horizontal" novalidate>
+		<div class="perfhr-widget-content">
+		    <div class="col-md-3">
+	          	<div class="box box-widget widget-user-2">
+		            <!-- Add the bg color to the header using any of the bg-* classes -->
+		            <div class="widget-user-header bg-aqua-active">
+		              <div class="widget-user-image">
+		                <img class="profile-user-img img-responsive img-circle" src="images/user-icon.png" alt="User profile picture" style="width: 65px; height:65px;">
+		              </div>
+		              <!-- /.widget-user-image -->
+		              <h3 class="widget-user-username">{{data.lastName}}, {{data.firstName}}</h3>
+		              <h5 class="widget-user-desc">{{data.designations.designation}}</h5>
+		            </div>
+		            <!-- <div class="box-footer no-padding">
+		              <ul class="nav nav-stacked">
+		                <li><a href="#">Projects <span class="pull-right badge bg-red">31</span></a></li>
+		              </ul>
+		            </div> -->
+		        </div>
+		        <div ng-if="empRoles.length > 0" class="box box-warning direct-chat direct-chat-primary">
+		            <div class="box-header with-border">
+		              <h3 class="box-title">Roles</h3>
+		            </div>
+		            <div class="box-footer no-padding">
+		              <ul class="nav nav-stacked">
+		              	<li ng-repeat="empRole in empRoles"><a href="javascript:void(0);">{{empRole.roleId.roleName}}</a></li>
+		              </ul>
+		            </div>
+		        </div>
+		        <!-- <div class="box box-danger direct-chat direct-chat-primary">
+		            <div class="box-header with-border">
+		              <h3 class="box-title">Projects</h3>
+		            </div>
+		            <div class="box-footer no-padding">
+		              <ul class="nav nav-stacked">
+		              	<li ng-repeat="project in projects">
+		              		<a href="javascript:void(0);">{{project.projectName}}
+		              			<small class="pull-right">90%</small>       
+						        <div class="progress xs">
+						        	<div class="progress-bar progress-bar-green" style="width: 90%;"></div>
+						        </div>
+		              		</a>
+		              	</li>
+		              </ul>
+		            </div>
+		        </div> -->
+			</div>
+		    <div class="col-md-9">
+		      	<div onload="finishLoading()" data-ng-include src="'html/employee.html'"></div>
+		    </div>		    
+	    </div>
+	    <div class="perfhr-widget-footer">
+		    <button type="submit" ng-show="data.pk" class="btn btn-update" action="submit">Update</button>
+	    </div>
+    </form>
+</div>
+<div class="modal fade" id="updatePassword" role="dialog" data-backdrop="static">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<form role="form" class="form-horizontal" novalidate>
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Update Password</h4>
+				</div>
+			    <div class="modal-body">
+			    	<div class="row">
+					     <div class="col-md-11">
+					         <div class="form-group">
+						         <label class="col-md-4 control-label required">Current Password :</label>
+					             <div class="col-md-8">
+					               <input type="password" class="form-control" name="Current Password" required validType="all-chars" ng-minlength="5"
+		                				ng-maxlength="15" ng-model="currentPassword"/>
+					             </div>
+			   		         </div>
+			   		         <div class="form-group">
+						         <label class="col-md-4 control-label required">New Password :</label>
+					             <div class="col-md-8">
+					               <input type="password" id="newPassword" class="form-control" name="New Password" required validType="all-chars" ng-minlength="8"
+		                				ng-maxlength="15" ng-model="newPassword"/>
+					             </div>
+			   		         </div>
+			   		         <div class="form-group">
+						         <label class="col-md-4 control-label required">Confirm Password :</label>
+					             <div class="col-md-8">
+					               <input type="password" class="form-control" name="Confirm Password" required validType="all-chars" ng-minlength="8"
+		                				ng-maxlength="15" ng-model="confirmPassword"/>
+					             </div>
+			   		         </div>
+		   		         </div>
+	   		         </div>
+	   		         <div class="row">
+	   		         	<div class="col-md-11">
+	   		         		<div class="alert alert-warning" role="alert">Password must contain atleast 1 special character and one number.</div>
+	   		         	</div>
+	   		         </div>
+			    </div>
+			    <div class="modal-footer">
+			    	<button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-update" action="updatePwd">Update</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
