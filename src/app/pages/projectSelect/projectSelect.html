@@ -5,47 +5,89 @@
         
                <form [formGroup]="myform">
                   <div class="row">
-                     <div class="col-md-15">
+                     <div class="col-md-3">
                         <div class="form-group">
                            <label for="Project">Project</label>
                           <p-dropdown [options]="Projects" formControlName="Project" [filter]="true"></p-dropdown>
                            
                         </div>
                      </div>
-                     <div class="col-md-15">
+                     <div class="col-md-2">
                         <div class="form-group">
-                           <label for="CAM 1">CAM 1</label>
-                          <p-dropdown [options]="CamMembers" formControlName="Cam1" [filter]="true"></p-dropdown>
+                           <label>Audit Version</label>
+                          <p-dropdown [options]="auditVersion" formControlName="auditControl" [filter]="true"></p-dropdown>
                         </div>
                      </div>
-                    <div class="col-md-15">
+                    <!-- <div class="col-md-3">
                         <div class="form-group">
-                           <label for="CAM 2">CAM 2</label>
-                           <p-dropdown [options]="CamMembers" formControlName="Cam2"  [filter]="true"></p-dropdown>
-                        </div>
-                     </div>
-                     <div class="col-md-15">
-                        <div class="form-group">
-                           <label for="formGroupExampleInput2">SEPG Approver</label>
-                           <p-dropdown [options]="CamMembers" formControlName="SEPGApprover"  [filter]="true"></p-dropdown>
+                           <label for="CAM 2">CAM 2/ SEPG Approver</label>
                            
-                        </div>
-                     </div>
-                     <div class="col-md-15">
-                        <div class="form-group">
-                           <label for="formGroupExampleInput2">Account</label>
-                             <p-dropdown [options]="Projects" formControlName="AccountName"  [filter]="true"></p-dropdown>
-                        </div>
-                     </div>
+
+    <angular2-multiselect [data]="CamMembers"  formControlName="Cam2"  [(ngModel)]="selectedItems" [settings]="dropdownSettings" 
+    (onSelect)="onItemSelect($event)" 
+    ></angular2-multiselect>
+
+ </div>
+                     </div> -->
                       <input value="submit" class="btn btn-primary" style="
     height: 36px;
     margin: 27px 0 0 0;
 " type="submit">
                   </div>
+<!-- 
+<button (click)="updateModal()" class="btn btn-primary">Change</button> -->
+                  
                </form>
           
          </div>
+            
     
+
 
       </section>
       <!-- /.content -->
+
+      
+<!-- <Ptd-Modal  [(visible)]="display" Modaltitle="page Title">
+<Modal-Body> 
+  <div class="row">
+  <div class="col-md-12">
+  
+     <form [formGroup]="myform">
+                  <div class="row">
+                        <div class="form-group">
+                           <label for="Project">Project</label>
+                          <p-dropdown [options]="Projects" formControlName="Project" [filter]="true"></p-dropdown>
+                           
+                        </div> 
+                        
+                        <div class="form-group">
+                           <label for="CAM 1">CAM 1</label>
+                          <p-dropdown [options]="CamMembers" formControlName="Cam1" [filter]="true"></p-dropdown>
+                        </div>
+                        
+                        
+                        <div class="form-group">
+                           <label for="CAM 2">CAM 2</label>
+                           <p-dropdown [options]="CamMembers" formControlName="Cam2"  [filter]="true"></p-dropdown>
+                        </div>
+                           
+                        
+                        <div class="form-group">
+                           <label for="formGroupExampleInput2">SEPG Approver</label>
+                           <p-dropdown [options]="CamMembers" formControlName="SEPGApprover"  [filter]="true"></p-dropdown>
+                           
+                        </div>
+                          
+                        <div class="form-group">
+                           <label for="formGroupExampleInput2">Account</label>
+                             <p-dropdown [options]="Projects" formControlName="AccountName"  [filter]="true"></p-dropdown>
+                        </div>
+                     </div>
+                      <input value="submit" class="btn btn-primary" type="submit">
+
+               </form>
+                    </div>
+  </div>
+</Modal-Body>
+</Ptd-Modal> -->

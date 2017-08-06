@@ -15,58 +15,129 @@ import {Employee } from '../../providers/commonServices';
 
 export class APMComponent   implements OnInit{
   rForm: FormGroup;
-  PRList:any;
-  continuosCodeReview:any;
-  frequency: FormControl;
-  TeamReviewpeerReview: FormControl;
-  GDCReview: FormControl;
-  EnableReview: FormControl;
-  ReviewComentTracking: FormControl;
-  Automation: FormControl;
-  ReviewTaskTracking: FormControl;
-  ReviewCriteria: FormControl;
-  ReviewPlanTracking: FormControl;
-  applicable: FormControl;
-  applicable2: FormControl;
+  APMList:any;
+
+  projectPlanningTaskTracking:any;
+  projectPlanning: FormControl;
+  highLevelProjectPlanning: FormControl;
+  sprintFrequency: FormControl;
+  projectEstimationMethod: FormControl;
+  sprintPlanning: FormControl;
+  taskUpdateFreq: FormControl;
+  onsiteOffsiteOverlap: FormControl;
+  releaseFrequency: FormControl;
+  releaseplanning: FormControl;
+  projectProcess: FormControl;
+  dailyScrum: FormControl;
+  sprintBacklogManagement: FormControl;
+  estimationTrackingTool: FormControl;
+  projectDocumentRepository: FormControl;
+  meetingMinutes: FormControl;
+  tdcInvolvement: FormControl;
+  infrastructureRequestManagement: FormControl;
+  sprintBaselineCritera: FormControl;
+  supportTtaskManagement: FormControl;
+  isProjectPlanningTaskTrackingapplicable: FormControl;
+
+  iterationDemo: any;
+  demoFrequency: FormControl;
+  demoMode: FormControl;
+  demoParticipants: FormControl;
+  demoFeedbackRecording: FormControl;
+  isIterationDemoapplicable: FormControl;
+
+  iterationRetrospective: any;
+  retrospectiveDuration: FormControl;
+  retrospectiveFrequency: FormControl;
+  retrospectiveActionItemTracking: FormControl;
+  retrospectiveOutcomeDocumentation: FormControl;
+  retrospectiveOwner: FormControl;
+  stakeholderInvolvement: FormControl;
+  retrospectiveFocusOnAll: FormControl;
+  isIterationRetrospectiveapplicable: FormControl;
+  
   
 
 
  constructor( private _fb: FormBuilder , private commonAPIservice: commonAPIservice , private http: Http) {
 
-  this.frequency            = new FormControl('', Validators.compose([Validators.required]));
-  this.TeamReviewpeerReview = new FormControl('', Validators.compose([Validators.required]));
-  this.GDCReview            = new FormControl('', Validators.compose([Validators.required]));
-  this.EnableReview         = new FormControl('', Validators.compose([Validators.required]));
-  this.ReviewComentTracking = new FormControl('', Validators.compose([Validators.required]));
-  this.Automation           = new FormControl('', Validators.compose([Validators.required]));
-  this.ReviewTaskTracking   = new FormControl('', Validators.compose([Validators.required]));
-  this.ReviewCriteria       = new FormControl('', Validators.compose([Validators.required]));
-  this.ReviewPlanTracking   = new FormControl('', Validators.compose([Validators.required]));
-  this.applicable           = new FormControl('', Validators.compose([Validators.required]));
-  this.applicable2          = new FormControl('', Validators.compose([Validators.required]));
-  
-
+  this.projectPlanning            = new FormControl('', Validators.compose([Validators.required]));
+  this.highLevelProjectPlanning = new FormControl('', Validators.compose([Validators.required]));
+  this.sprintFrequency            = new FormControl('', Validators.compose([Validators.required]));
+  this.projectEstimationMethod         = new FormControl('', Validators.compose([Validators.required]));
+  this.sprintPlanning = new FormControl('', Validators.compose([Validators.required]));
+  this.taskUpdateFreq           = new FormControl('', Validators.compose([Validators.required]));
+  this.onsiteOffsiteOverlap   = new FormControl('', Validators.compose([Validators.required]));
+  this.releaseFrequency       = new FormControl('', Validators.compose([Validators.required]));
+  this.releaseplanning   = new FormControl('', Validators.compose([Validators.required]));  
+  this.projectProcess          = new FormControl('', Validators.compose([Validators.required]));
+  this.dailyScrum = new FormControl('', Validators.compose([Validators.required]));
+  this.sprintBacklogManagement           = new FormControl('', Validators.compose([Validators.required]));
+  this.estimationTrackingTool   = new FormControl('', Validators.compose([Validators.required]));
+  this.projectDocumentRepository       = new FormControl('', Validators.compose([Validators.required]));
+  this.meetingMinutes   = new FormControl('', Validators.compose([Validators.required]));
+  this.tdcInvolvement           = new FormControl('', Validators.compose([Validators.required]));
+  this.infrastructureRequestManagement          = new FormControl('', Validators.compose([Validators.required]));
+  this.sprintBaselineCritera   = new FormControl('', Validators.compose([Validators.required]));
+  this.supportTtaskManagement           = new FormControl('', Validators.compose([Validators.required]));
+  this.isProjectPlanningTaskTrackingapplicable           = new FormControl('', Validators.compose([Validators.required]));
+  this.demoFrequency                      = new FormControl('', Validators.compose([Validators.required]));
+  this.demoMode                           = new FormControl('', Validators.compose([Validators.required]));
+  this.demoParticipants                   = new FormControl('', Validators.compose([Validators.required]));
+  this.demoFeedbackRecording              = new FormControl('', Validators.compose([Validators.required]));
+  this.isIterationDemoapplicable          = new FormControl('', Validators.compose([Validators.required]));                    
+  this.retrospectiveDuration              = new FormControl('', Validators.compose([Validators.required]));
+  this.retrospectiveFrequency             = new FormControl('', Validators.compose([Validators.required]));
+  this.retrospectiveActionItemTracking    = new FormControl('', Validators.compose([Validators.required]));
+  this.retrospectiveOutcomeDocumentation  = new FormControl('', Validators.compose([Validators.required]));
+  this.retrospectiveOwner                 = new FormControl('', Validators.compose([Validators.required]));
+  this.stakeholderInvolvement             = new FormControl('', Validators.compose([Validators.required]));
+  this.retrospectiveFocusOnAll            = new FormControl('', Validators.compose([Validators.required]));
+  this.isIterationRetrospectiveapplicable = new FormControl('', Validators.compose([Validators.required]));
 
 
 
 
   this.rForm = this._fb.group({
-          "continuosCodeReview" : this._fb.group({
-              'frequency'           : this.frequency,
-              'TeamReviewpeerReview': this.TeamReviewpeerReview,
-              'GDCReview'           : this.GDCReview,
-              'EnableReview'        : this.EnableReview,
-              'ReviewComentTracking': this.ReviewComentTracking,
-              'Automation'          : this.Automation,
-              'applicable'          : this.applicable
+          "projectPlanningTaskTracking" : this._fb.group({
+              'projectPlanning'                        : this.projectPlanning,                       
+              'highLevelProjectPlanning'               : this.highLevelProjectPlanning,               
+              'sprintFrequency'                        : this.sprintFrequency,                        
+              'projectEstimationMethod'                : this.projectEstimationMethod,                
+              'sprintPlanning'                         : this.sprintPlanning,                         
+              'taskUpdateFreq'                         : this.taskUpdateFreq,                         
+              'onsiteOffsiteOverlap'                   : this.onsiteOffsiteOverlap,                   
+               'releaseFrequency'                      :  this.releaseFrequency,                       
+               'releaseplanning'                       :  this.releaseplanning,                        
+               'projectProcess'                        :  this.projectProcess,                         
+               'dailyScrum'                            :  this.dailyScrum,                            
+               'sprintBacklogManagement'               :  this.sprintBacklogManagement,                
+               'estimationTrackingTool'                :  this.estimationTrackingTool,                 
+               'projectDocumentRepository'             :  this.projectDocumentRepository,              
+               'meetingMinutes'                        :  this.meetingMinutes,                         
+               'tdcInvolvement'                        :  this.tdcInvolvement,                         
+               'infrastructureRequestManagement'       :  this.infrastructureRequestManagement,        
+               'sprintBaselineCritera'                 :  this.sprintBaselineCritera,                  
+               'supportTtaskManagement'                :  this.supportTtaskManagement,                 
+               'isProjectPlanningTaskTrackingapplicable': this.isProjectPlanningTaskTrackingapplicable
           }),
-          "peerReviewPlan"      : this._fb.group({
-              'ReviewTaskTracking'  : this.ReviewTaskTracking,
-              'ReviewCriteria'      : this.ReviewCriteria,
-              'ReviewPlanTracking'  : this.ReviewPlanTracking,
-              'applicable'          : this.applicable
-
-          })
+          "iterationDemo"      : this._fb.group({
+              'demoFrequency'                   :this.demoFrequency,                     
+              'demoMode'                        :this.demoMode,                          
+              'demoParticipants'                :this.demoParticipants,                 
+              'demoFeedbackRecording'           :this.demoFeedbackRecording,             
+              'isIterationDemoapplicable'       :this.isIterationDemoapplicable
+          }),
+          "iterationRetrospective"      : this._fb.group({
+              'retrospectiveDuration'                     :this.retrospectiveDuration,             
+              'retrospectiveFrequency'                    :this.retrospectiveFrequency,            
+              'retrospectiveActionItemTracking'           :this.retrospectiveActionItemTracking,   
+              'retrospectiveOutcomeDocumentation'         :this.retrospectiveOutcomeDocumentation, 
+              'retrospectiveOwner'                        :this.retrospectiveOwner,                
+              'stakeholderInvolvement'                    :this.stakeholderInvolvement,            
+              'retrospectiveFocusOnAll'                   :this.retrospectiveFocusOnAll,           
+              'isIterationRetrospectiveapplicable'        :this.isIterationRetrospectiveapplicable,
+          }),
   });
     
  }
@@ -76,12 +147,12 @@ export class APMComponent   implements OnInit{
 
   ngOnInit() { 
     this.commonAPIservice.getSqa('/v-ptd/loadPtd?projectId=1&auditVersion=1').subscribe(  (res) => {
-      this.PRList = res.entity ; 
+      this.APMList = res.entity ; 
     });
   }
 
   onSubmit(){
-    this.commonAPIservice.update('/v-ptd/merge?userId=1&projectId=1&version=1' , this.PRList).subscribe(
+    this.commonAPIservice.update('/v-ptd/merge?userId=1&projectId=1&version=1' , this.APMList).subscribe(
       (res) => {
         alert('updated Sucessfully');
     });

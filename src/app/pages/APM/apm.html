@@ -7,271 +7,301 @@
          
     
     <div class="formContainer">
-         <form [formGroup]="rForm"  *ngIf='PRList' (ngSubmit)="onSubmit(rForm.value)">
+         <form [formGroup]="rForm"  *ngIf='APMList' (ngSubmit)="onSubmit()">
           
                   <p-accordion>
-                     <p-accordionTab formGroupName="continuosCodeReview"  header="Project Planning & Task Tracking" [selected]="true">
+                     <p-accordionTab formGroupName="projectPlanningTaskTracking"  header="Project Planning & Task Tracking" [selected]="true">
+                      <div class="applicable">
+                        <input (click)='chk($event)' id="isPPTTapplicable" [(ngModel)]="APMList.projectPlanningTaskTracking.isProjectPlanningTaskTrackingapplicable"
+                               formControlName="isProjectPlanningTaskTrackingapplicable" 
+                               type="checkbox">
+                        <label for="isPPTTapplicable">Applicable
+                            <div class="ckb">
+                                <i class="fa fa-check"></i>
+                            </div>
+                        </label>
+                    </div>
                         <div class="row">
                          <div class="col-md-4">
                               <div class="form-group">
                                  <label for="formGroupExampleInput">Project Planning/<br>Task Tracking Tool</label>
                                  <input type="text" class="form-control"  pInputText placeholder="Title (required)"
-                                  [(ngModel)] = "PRList.continuosCodeReview.frequency"
-                                formControlName="frequency" />
+                                  [(ngModel)] = "APMList.projectPlanningTaskTracking.projectPlanning"
+                                formControlName="projectPlanning" />
                               </div>
                            </div>
 							 <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">High Level Project<br>Planning Responsibility</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.projectPlanningTaskTracking.highLevelProjectPlanning"
+								 formControlName="highLevelProjectPlanning" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Iteration /<br>Sprint Frequency</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.projectPlanningTaskTracking.sprintFrequency"
+								 formControlName="sprintFrequency" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Project<br>Estimation Method</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.projectPlanningTaskTracking.projectEstimationMethod"
+								 formControlName="projectEstimationMethod" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Sprint Planning:<br>When/Who will be <br>involved and Duration</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.projectPlanningTaskTracking.sprintPlanning"
+								 formControlName="sprintPlanning" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Task Update<br>Frequency</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.projectPlanningTaskTracking.taskUpdateFreq"
+								 formControlName="taskUpdateFreq" >
 							  </div>
 						   </div>
 						    <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Onsite - Offshore<br>overlapping hours</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.projectPlanningTaskTracking.onsiteOffsiteOverlap"
+								 formControlName="onsiteOffsiteOverlap" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Release Frequency</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.projectPlanningTaskTracking.releaseFrequency"
+								 formControlName="releaseFrequency" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Release Planning</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.projectPlanningTaskTracking.releaseplanning"
+								 formControlName="releaseplanning" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Project Process</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.projectPlanningTaskTracking.projectProcess"
+								 formControlName="projectProcess" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Daily Scrum:<br>When/Who will be <br>involved and Duration</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.projectPlanningTaskTracking.dailyScrum"
+								 formControlName="dailyScrum" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Product / Sprint<br>Backlog Management</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.projectPlanningTaskTracking.sprintBacklogManagement"
+								 formControlName="sprintBacklogManagement" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Estimation Tracking<br>tool</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.projectPlanningTaskTracking.estimationTrackingTool"
+								 formControlName="estimationTrackingTool" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Project Document<br>Repository</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.projectPlanningTaskTracking.projectDocumentRepository"
+								 formControlName="projectDocumentRepository" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Meeting Minutes /<br>Action Items Tracking</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.projectPlanningTaskTracking.meetingMinutes"
+								 formControlName="meetingMinutes" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">TDC Involvement</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.projectPlanningTaskTracking.tdcInvolvement"
+								 formControlName="tdcInvolvement" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Infrastructure<br>Request Management</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.projectPlanningTaskTracking.infrastructureRequestManagement"
+								 formControlName="infrastructureRequestManagement" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Sprint Baseline Critera</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.projectPlanningTaskTracking.sprintBaselineCritera"
+								 formControlName="sprintBaselineCritera" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Support<br>Task Management</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.projectPlanningTaskTracking.supportTtaskManagement"
+								 formControlName="supportTtaskManagement" >
 							  </div>
 						   </div> 
                         </div>
                         
 					 </p-accordionTab>
 					
-					 <p-accordionTab formGroupName="continuosCodeReview"  header="Iteration Retrospective" [selected]="true">
+					 <p-accordionTab formGroupName="iterationRetrospective"  header="Iteration Retrospective" [selected]="true">
+					 <div class="applicable">
+                        <input (click)='chk($event)' id="isIRapplicable" [(ngModel)]="APMList.iterationRetrospective.isIterationRetrospectiveapplicable"
+                               formControlName="isIterationRetrospectiveapplicable" 
+                               type="checkbox">
+                        <label for="isIRapplicable">Applicable
+                            <div class="ckb">
+                                <i class="fa fa-check"></i>
+                            </div>
+                        </label>
+                    </div>
                         <div class="row">
                           <div class="col-md-4">
                               <div class="form-group">
                                  <label for="formGroupExampleInput">Retrospective Duration</label>
                                  <input type="text" class="form-control"  pInputText placeholder="Title (required)"
-                                  [(ngModel)] = "PRList.continuosCodeReview.frequency"
-                                formControlName="frequency" />
+                                  [(ngModel)] = "APMList.iterationRetrospective.retrospectiveDuration"
+                                formControlName="retrospectiveDuration" />
                               </div>
                            </div>
 							 <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Retrospective<br>Frequency</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.iterationRetrospective.retrospectiveFrequency"
+								 formControlName="retrospectiveFrequency" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Retrospective Action<br>Item Tracking</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.iterationRetrospective.retrospectiveActionItemTracking"
+								 formControlName="retrospectiveActionItemTracking" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Retrospective<br>Outcome <br>Documentation</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.iterationRetrospective.retrospectiveOutcomeDocumentation"
+								 formControlName="retrospectiveOutcomeDocumentation" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Retrospective Owner</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.iterationRetrospective.retrospectiveOwner"
+								 formControlName="retrospectiveOwner" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Stakeholder<br>Involvement</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.iterationRetrospective.stakeholderInvolvement"
+								 formControlName="stakeholderInvolvement" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Retrospective Focus<br>on All PA </label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.iterationRetrospective.retrospectiveFocusOnAll"
+								 formControlName="retrospectiveFocusOnAll" >
 							  </div>
 						   </div>						
 						</div>                         
 					 </p-accordionTab>
 					
-					    <p-accordionTab formGroupName="continuosCodeReview"  header="Iteration Demo" [selected]="true">
+					    <p-accordionTab formGroupName="iterationDemo"  header="Iteration Demo" [selected]="true">
+					    <div class="applicable">
+                        <input (click)='chk($event)' id="isIDapplicable" [(ngModel)]="APMList.iterationDemo.isIterationDemoapplicable"
+                               formControlName="isIterationDemoapplicable" 
+                               type="checkbox">
+                        <label for="isIDapplicable">Applicable
+                            <div class="ckb">
+                                <i class="fa fa-check"></i>
+                            </div>
+                        </label>
+                    </div>
                          <div class="row">
                          <div class="col-md-4">
                               <div class="form-group">
                                  <label for="formGroupExampleInput">Demo Frequency</label>
                                  <input type="text" class="form-control"  pInputText placeholder="Title (required)"
-                                  [(ngModel)] = "PRList.continuosCodeReview.frequency"
-                                formControlName="frequency" />
+                                  [(ngModel)] = "APMList.iterationDemo.demoFrequency"
+                                formControlName="demoFrequency" />
                               </div>
                            </div>
 							 <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Demo Mode</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.iterationDemo.demoMode"
+								 formControlName="demoMode" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Demo Participants</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.iterationDemo.demoParticipants"
+								 formControlName="demoParticipants" >
 							  </div>
 						   </div>
 						   <div class="col-md-4">
 							  <div class="form-group">
 								 <label for="formGroupExampleInput">Demo Feedback<br>Recording</label>
 								 <input type="text" class="form-control"  pInputText 
-								 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-								 formControlName="TeamReviewpeerReview" >
+								 [(ngModel)] = "APMList.iterationDemo.demoFeedbackRecording"
+								 formControlName="demoFeedbackRecording" >
 							  </div>
 						   </div>						
-						</div>                         
+						</div>  
+						 <div class="row">
+                        <div class="col-md-12 text-right">
+                            <input type="submit" class="btn btn-success" value="Save">
+                            <button class="btn btn-default">Cancel</button>
+                        </div>
+                    </div>                       
                      </p-accordionTab>
                   </p-accordion>
-				  
-				
-				  
-			
-				  
-              
          </form>
          </div>
          

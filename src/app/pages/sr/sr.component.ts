@@ -18,10 +18,10 @@ import{ValidationService , ControlMessagesComponent} from '../../providers/valid
 
 
 export class SRComponent   implements OnInit , OnChanges{
-  @Input() pageTitle: string = "Status Reporting";
+  @Input() pageTitle: string = "Status Report Plan";
   rForm: FormGroup;
   SRList:any;
-  statusReporting:any;
+  statusReportPlan:any;
   statusReportPattern: FormControl;
   statusTracking: FormControl;
   statusCommunicationMode: FormControl;
@@ -41,7 +41,7 @@ export class SRComponent   implements OnInit , OnChanges{
 
 
     this.rForm = this._fb.group({
-      "statusReporting" : this._fb.group({
+      "statusReportPlan" : this._fb.group({
         'statusReportPattern': this.statusReportPattern,
         'statusTracking': this.statusTracking,
         'statusCommunicationMode': this.statusCommunicationMode,
@@ -58,13 +58,15 @@ export class SRComponent   implements OnInit , OnChanges{
   ngOnInit() {
     this.commonAPIservice.getSqa('/v-ptd/loadPtd?projectId=1&auditVersion=1').subscribe(  (res) => {
       this.SRList = res.entity ; 
-      console.log(this.SRList.statusReporting); 
     });
    
   }
 
-  onSubmit(post){
-    this.commonAPIservice.update('/v-ptd/merge?userId=1&projectId=1&version=1' , this.SRList).subscribe();
+  onSubmit(){
+    this.commonAPIservice.update('/v-ptd/merge?userId=1&projectId=1&version=1' , this.SRList).subscribe(
+      (res) => {
+        alert('updated Sucessfully');
+    });
   }
 
   chk(event){

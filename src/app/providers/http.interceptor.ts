@@ -32,10 +32,37 @@ export class InterceptedHttp extends Http{
         url = this.updateUrl(url);
         return super.delete(url, this.getRequestOptionArgs(options));
     }
+
+     request(url: string | Request, options?: RequestOptionsArgs): Observable<Response> {
+      return this.intercept(super.request(url, options));
+     }
+
+     intercept(observable: Observable<Response>): Observable<Response> {
+   
+    return observable
+     
+      .do((res: Response) => {
+        document.body.classList.add('ShowModal');
+      }, (err: any) => {
+        document.body.classList.remove('ShowModal');
+       
+        console.log("Caught error: " + err);
+      })
+      .finally(() => {
+        var timer = Observable.timer(1000);
+        timer.subscribe(t => {
+        document.body.classList.remove('ShowModal');
+            
+        });
+      });
+    }
+
     
     private updateUrl(req: string) {
         return  environment.origin + req;
     }
+
+    
 
     private getRequestOptionArgs(options?: RequestOptionsArgs) : RequestOptionsArgs {
         if (options == null) {

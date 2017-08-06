@@ -2,120 +2,39 @@
    <header class="main-header">
       <a href="index2.html" class="logo">
       <span class="logo-mini">SQA</span>
-
       </a>
 
       <nav class="navbar">
        <span class="pageTitle"><i class="fa fa-file-text-o"></i>{{pageTitle}}</span>
         <ul class="rightMenu">
-
           <li> <span  *ngIf="users"><i class="fa fa-user"></i>  Hi ,    {{users.firstName}}</span></li>
           <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
           <li><a href="#"><i class="fa fa-exit"></i>Logout</a></li>
-
+          <li>
+          <form [formGroup]="myform" (ngSubmit)="onSubmit(myform.value)">
+            <p-dropdown [options]="Projects" formControlName="Project" [filter]="true"></p-dropdown>
+            <p-dropdown [options]="auditVersion"  formControlName="auditControl" [filter]="true"></p-dropdown>
+            <input type="submit">           
+          </form>
+          </li>
         </ul>
       </nav>
 
    </header>
-   <aside class="main-sidebar">
+
+    <aside [class.parentMenu]="Menuchanges" class="main-sidebar">
       <section class="sidebar">
-         <ul class="sidebar-menu">
-            <br>
-            <li class="treeview">
-               <a  [routerLinkActive]="['active']" [routerLink]="['/APM']">
-               <label>APM</label> 
-               </a>
-            </li>
-            <li class="treeview">
-               <a [routerLinkActive]="['active']" [routerLink]="['/RIDM']">
-               <label>RIDM</label>
-               </a>
-            </li>
-            <li class="treeview">
-               <a [routerLinkActive] = "['active']" [routerLink]="['/SR']">
-               <label>SR</label>
-               </a>
-            </li>
-            <li class="treeview">
-
-               <a  [routerLinkActive] = "['active']" [routerLink]="['/TCDR']">
-               <label>TCDR</label> 
-
-               </a>
-            </li>
-            <li class="treeview">
-               <a  [routerLinkActive]="['active']" [routerLink]="['/SC']">
-               <label>SC</label>
-               </a>
-            </li>
-            <li class="treeview">
-               <a [routerLinkActive]="['active']" [routerLink]="['/AD']">
-               <label>AD</label>
-               </a>
-            </li>
-            <li class="treeview">
-               <a [routerLinkActive]="['active']" [routerLink]="['/PR']">
-               <label>PR</label>
-               </a>
-            </li>
-            <li class="treeview">
-               <a href="#">
-               <label>AST</label>
-               </a>
-            </li>
-            <li class="treeview">
-               <a href="#">
-               <label>CM</label> 
-               </a>
-            </li>
-            <li class="treeview">
-                <a [routerLinkActive]="['active']" [routerLink]="['/DM']">
-               <label>DM</label>
-               </a>
-            </li>
-            <li class="treeview">
-                <a [routerLinkActive]="['active']" [routerLink]="['/CM']">
-               <label>CM</label>
-               </a>
-            </li>
-            <li class="treeview">
-               <a [routerLinkActive]="['active']" [routerLink]="['/PQPP']">
-               <label>PQPP</label>
-               </a>
-            </li>
-            <li class="treeview">
-               <a [routerLinkActive]="['active']" [routerLink]="['/HO']">
-               <label>HO</label>
-               </a>
-            </li>
-            <li class="treeview">
-               <a [routerLinkActive]="['active']" [routerLink]="['/DAR']">
-               <label>DAR</label>
-               </a>
-            </li>
-            <li class="treeview">
-               <a [routerLinkActive]="['active']" [routerLink]="['/CAR']">
-               <label>CAR</label>
-               </a>
-            </li>
-            <li class="treeview">
-               <a href="#">
-               <label>RS</label>
-               </a>
-            </li>
-         </ul>
+        <Ptd-Menu  (Menuchange)="handleUserUpdated()" class="menu1" [menulist]="menu1"></Ptd-Menu>
+        <Ptd-Menu  (Menuchange)="handleUserUpdated()"  class="menu2" [menulist]="menu2"></Ptd-Menu>
       </section>
-   </aside>
-   <div class="content-wrapper">
+    </aside>
 
-      <!-- Main content -->
-
-
-<projectSelect [hidden]="notify"></projectSelect>
-
-
-
-    <router-outlet></router-outlet>
-      <!-- /.content -->
-   </div>
+    <div class="content-wrapper">
+<!--        
+      <projectSelect></projectSelect> -->
+      <router-outlet [test]="name"></router-outlet>
+     </div>
 </div>
+
+<Loader>
+</Loader>

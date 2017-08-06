@@ -1,95 +1,53 @@
- <!-- Main content -->
-      <!-- /.content -->
 
-       <!-- Main content -->
-      <section class="content">
-       
-  <form novalidate #form="ngForm">
-         <fieldInput [(ngModel)]="result"  fieldlabel="frequency" name="result"></fieldInput>
-        <fieldInput [(ngModel)]="result2"  fieldlabel="new valu" name="result2"></fieldInput> 
-        <li *ngFor="let hero of heroes">
-       <fieldInput [(ngModel)]="result"  [fieldlabel]="hero.frequency" [name]="hero.result"></fieldInput>
-    </li>
-      </form>
-       <pre>{{ ngForm | json }}</pre>
+<!-- /.content -->
 
-    
-    <div class="formContainer">
-         <form [formGroup]="rForm" *ngIf='PRList'    #form (ngSubmit)="onSubmit($event , this , rForm)">
+<!-- Main content -->
+<section class="content">
 
-        <p-accordion>
-<p-accordionTab formGroupName="continuosCodeReview"  header="Continues Code Review" [selected]="true">
+
+
+
+<div class="formContainer">
+<!-- <form [formGroup]="rForm" *ngIf='PRList'    #form (ngSubmit)="onSubmit($event , this , rForm)">
+<p-accordion>
+  <p-accordionTab formGroupName="continuosCodeReview"  header="Continues Code Review" [selected]="true">
+    <div class="applicable">
+      <input (click)='chk($event)' id="appli"  [(ngModel)] = "PRList.continuosCodeReview.applicable"   formControlName="applicable" [checked]="PRList.continuosCodeReview.applicable" type="checkbox">
+      <label for="appli">Applicable  <div class="ckb">  <i class="fa fa-check"></i>  </div>  </label>
+    </div>
+    <div class="row">
+      <fieldInput *ngFor="let field of subprocess1" [(ngModel)]="field.fieldvalue"  [fieldlabel]="field.fieldtext" [formControlName]="field.control"></fieldInput>
+    </div>
+  </p-accordionTab>
+<p-accordionTab formGroupName="peerReviewPlan"  [selected]="true" header="Peer Code Review">
 <div class="applicable">
-   <input (click)='chk($event)' id="appli"  [(ngModel)] = "PRList.continuosCodeReview.applicable"   formControlName="applicable" [checked]="PRList.continuosCodeReview.applicable" type="checkbox">
-  <label for="appli">Applicable
-  <div class="ckb">
-  <i class="fa fa-check"></i>
-  </div>
-  </label>
+   <input (click)='chk($event)' id="appli2"  [(ngModel)] = "PRList.peerReviewPlan.applicable"   formControlName="applicable" [checked]="PRList.peerReviewPlan.applicable" type="checkbox">
+   <label for="appli2">Applicable<div class="ckb"><i class="fa fa-check"></i></div></label>
+</div>  
+
+<div class="row">
+ <fieldInput *ngFor="let field of subprocess2" [(ngModel)]="field.fieldvalue"  [fieldlabel]="field.fieldtext" [formControlName]="field.control"></fieldInput>
 </div>
 <div class="row">
-<fieldInput  fieldlabel="frequency"   [(ngModel)] = "PRList.continuosCodeReview.frequency" formControlName="frequency" ></fieldInput>
-<fieldInput  fieldlabel="Team Review/Peer Review"   [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview" formControlName="TeamReviewpeerReview" ></fieldInput>
-<fieldInput  fieldlabel="Reviewer from GDC"   [(ngModel)] = "PRList.continuosCodeReview.reviewFromGDC" formControlName="GDCReview" ></fieldInput>
-<fieldInput  fieldlabel="Enable 2.0 Review Template"   [(ngModel)] = "PRList.continuosCodeReview.enableLatestReviewTemplate" formControlName="EnableReview" ></fieldInput>
-<fieldInput  fieldlabel="Review Comment Tracking"   [(ngModel)] = "PRList.continuosCodeReview.reviewCommentTracking" formControlName="ReviewComentTracking" ></fieldInput>
-<fieldInput  fieldlabel="Manual/Automated"   [(ngModel)] = "PRList.continuosCodeReview.automated" formControlName="Automation" ></fieldInput>
+<div class="col-md-12 text-right">
+  <input type="submit" class="btn btn-success"  value="Save" >
+  <button class="btn btn-default">Cancel</button>
 </div>
-                         
-                        
-                     </p-accordionTab>
-                     <p-accordionTab formGroupName="peerReviewPlan"  [selected]="true" header="Peer Code Review">
-                      <div class="applicable">
-                      <input (click)='chk($event)' id="appli2"  [(ngModel)] = "PRList.peerReviewPlan.applicable"   formControlName="applicable" [checked]="PRList.peerReviewPlan.applicable" type="checkbox">
-                      <label for="appli2">Applicable
-                      <div class="ckb">
-                      <i class="fa fa-check"></i>
-                      </div>
-                      </label>
-                      </div>  
-                      
-                      <div class="row">
-                           <div class="col-md-4">
-                              <div class="form-group">
-                                 <label for="formGroupExampleInput">Review Task Tracking:</label>
-                                 <input type="text" class="form-control"  pInputText 
-                                    [(ngModel)] = "PRList.peerReviewPlan.reviewTimeTracking"
-                                 formControlName="ReviewTaskTracking">
-                              </div>
-                           </div>
-                           <div class="col-md-4">
-                              <div class="form-group">
-                                 <label for="formGroupExampleInput">Review Criteria Defined by:</label>
-                                 <input type="text" class="form-control"  pInputText 
-                                    [(ngModel)] = "PRList.peerReviewPlan.reviewCriteriaDefinedBy"
-                                 formControlName="ReviewCriteria">
-                              </div>
-                           </div>
-                           <div class="col-md-4">
-                              <div class="form-group">
-                                 <label for="formGroupExampleInput">Review Plan Tracking System</label>
-                                 <input type="text" class="form-control" pInputText
-                                    [(ngModel)] = "PRList.peerReviewPlan.reviewPalnTrackingSystem"
-                                 formControlName="ReviewPlanTracking">
-                              </div>
-                           </div>
-                        </div>
-                        <div class="row">
-                        <div class="col-md-12 text-right">
-                           <input type="submit" class="btn btn-success"  value="Save" >
-                          <button class="btn btn-default">Cancel</button>
-                          
-                        </div>
-                        </div>
+</div>
+</p-accordionTab>
+</p-accordion>
 
-                     </p-accordionTab>
-                  </p-accordion>
-              
-         </form>
-         </div>
-         
-      </section>
-     
+</form> -->
+</div>
 
-    
-      
+</section>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<p>sd</p>
+
+
+{{test.name}}

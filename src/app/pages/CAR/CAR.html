@@ -8,19 +8,33 @@
 
 
    <div class="formContainer">
-        <form>
+        <form [formGroup]="rForm" *ngIf='CAR_List'    #form (ngSubmit)="onSubmit()">
 
        <p-accordion>
-          <p-accordionTab  header="CAR" [selected]="true">
-
+          <p-accordionTab  formGroupName="carArtifactsEntity" header="CAR" [selected]="true">
+            <div class="applicable">
+              <input (click)='chk($event)' id="appli"  [(ngModel)] = "CAR_List.carArtifactsEntity.applicable"   formControlName="applicable" [checked]="CAR_List.carArtifactsEntity.applicable" type="checkbox">
+              <label for="appli">Applicable
+                <div class="ckb">
+                <i class="fa fa-check"></i>
+                </div>
+              </label>
+            </div>
              <div class="row">
               <div class="col-md-4">
                    <div class="form-group required">
                       <label for="formGroupExampleInput">CAR Artifacts</label>
-                      <input type="text" class="form-control"  pInputText placeholder="" />
+                      <input type="text" class="form-control" [(ngModel)] = "CAR_List.carArtifactsEntity.carArtifacts" formControlName="carArtifacts" pInputText placeholder="" />
                      <!--<control-messages [control]="rForm.controls.continuosCodeReview.controls.frequency"></control-messages>-->
                    </div>
                 </div>
+              </div>
+              <div class="row">
+              <div class="col-md-12 text-right">
+                 <input type="submit" class="btn btn-success"  value="Save" >
+                <button class="btn btn-default">Cancel</button>
+
+              </div>
               </div>
 
           </p-accordionTab>

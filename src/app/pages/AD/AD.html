@@ -8,83 +8,69 @@
 
 
    <div class="formContainer">
-        <form>
+        <form [formGroup]="rForm" *ngIf='AD_List' #form (ngSubmit)="onSubmit()">
 
        <p-accordion>
-          <p-accordionTab formGroupName="AD"  header="Architecture & Design" [selected]="true">
-
+          <p-accordionTab formGroupName="architectureDesignEntity"  header="Architecture & Design" [selected]="true">
+            <div class="applicable">
+              <input (click)='chk($event)' id="appli"  [(ngModel)] = "AD_List.architectureDesignEntity.applicable" formControlName="applicable" [checked]="AD_List.architectureDesignEntity.applicable" type="checkbox">
+              <label for="appli">Applicable
+                <div class="ckb">
+                <i class="fa fa-check"></i>
+                </div>
+              </label>
+            </div>
              <div class="row">
               <div class="col-md-4">
                    <div class="form-group required">
                       <label for="formGroupExampleInput">GDC Involvement</label>
-                      <input type="text" class="form-control"  pInputText placeholder="" />
+                      <input type="text" class="form-control" [(ngModel)] = "AD_List.architectureDesignEntity.gdcInvolvement" formControlName="gdcInvolvement" pInputText placeholder="" />
                      <!--<control-messages [control]="rForm.controls.continuosCodeReview.controls.frequency"></control-messages>-->
                    </div>
                 </div>
                 <div class="col-md-4">
                      <div class="form-group required">
                         <label for="formGroupExampleInput">Low Level Design</label>
-                        <input type="text" class="form-control"  pInputText placeholder="" />
+                        <input type="text" class="form-control" [(ngModel)] = "AD_List.architectureDesignEntity.lowLevelDesign" formControlName="lowLevelDesign" pInputText placeholder="" />
                        <!--<control-messages [control]="rForm.controls.continuosCodeReview.controls.frequency"></control-messages>-->
                      </div>
                   </div>
                   <div class="col-md-4">
                        <div class="form-group required">
+                          <label for="formGroupExampleInput">Design Respository</label>
+                          <input type="text" class="form-control" [(ngModel)] = "AD_List.architectureDesignEntity.designRepository" formControlName="lowLevelDesign" pInputText placeholder="" />
+                         <!--<control-messages [control]="rForm.controls.continuosCodeReview.controls.frequency"></control-messages>-->
+                       </div>
+                    </div>
+                  <div class="col-md-4">
+                       <div class="form-group required">
                           <label for="formGroupExampleInput">Design Review & Outcome Recording</label>
-                          <input type="text" class="form-control"  pInputText placeholder="" />
+                          <input type="text" class="form-control" [(ngModel)] = "AD_List.architectureDesignEntity.designReviewOutcome" formControlName="applicable" pInputText placeholder="" />
                          <!--<control-messages [control]="rForm.controls.continuosCodeReview.controls.frequency"></control-messages>-->
                        </div>
                     </div>
                     <div class="col-md-4">
                          <div class="form-group required">
                             <label for="formGroupExampleInput">Design Tool</label>
-                            <input type="text" class="form-control"  pInputText placeholder="" />
+                            <input type="text" class="form-control" [(ngModel)] = "AD_List.architectureDesignEntity.designTool" formControlName="applicable" pInputText placeholder="" />
                            <!--<control-messages [control]="rForm.controls.continuosCodeReview.controls.frequency"></control-messages>-->
                          </div>
                       </div>
                       <div class="col-md-4">
                            <div class="form-group required">
                               <label for="formGroupExampleInput">Alternate Design Evaluation DAR</label>
-                              <input type="text" class="form-control"  pInputText placeholder="" />
+                              <input type="text" class="form-control" [(ngModel)] = "AD_List.architectureDesignEntity.alternativeDesignEvaluation" formControlName="applicable" pInputText placeholder="" />
                              <!--<control-messages [control]="rForm.controls.continuosCodeReview.controls.frequency"></control-messages>-->
                            </div>
                         </div>
                         <div class="col-md-4">
                              <div class="form-group required">
                                 <label for="formGroupExampleInput">Reusable Components/Tools</label>
-                                <input type="text" class="form-control"  pInputText placeholder="" />
+                                <input type="text" class="form-control" [(ngModel)] = "AD_List.architectureDesignEntity.reusableComponents" formControlName="applicable"  pInputText placeholder="" />
                                <!--<control-messages [control]="rForm.controls.continuosCodeReview.controls.frequency"></control-messages>-->
                              </div>
                           </div>
-                          <div class="col-md-4">
-                               <div class="form-group required">
-                                  <label for="formGroupExampleInput">Complaint</label>
-                                  <input type="text" class="form-control"  pInputText placeholder="" />
-                                 <!--<control-messages [control]="rForm.controls.continuosCodeReview.controls.frequency"></control-messages>-->
-                               </div>
-                            </div>
-                            <div class="col-md-4">
-                                 <div class="form-group required">
-                                    <label for="formGroupExampleInput">Comment</label>
-                                    <input type="text" class="form-control"  pInputText placeholder="" />
-                                   <!--<control-messages [control]="rForm.controls.continuosCodeReview.controls.frequency"></control-messages>-->
-                                 </div>
-                              </div>
-                              <div class="col-md-4">
-                                   <div class="form-group required">
-                                      <label for="formGroupExampleInput">JIRA URL</label>
-                                      <input type="text" class="form-control"  pInputText placeholder="" />
-                                     <!--<control-messages [control]="rForm.controls.continuosCodeReview.controls.frequency"></control-messages>-->
-                                   </div>
-                                </div>
-                                <div class="col-md-4">
-                                     <div class="form-group required">
-                                        <label for="formGroupExampleInput">NC Closed</label>
-                                        <input type="text" class="form-control"  pInputText placeholder="" />
-                                       <!--<control-messages [control]="rForm.controls.continuosCodeReview.controls.frequency"></control-messages>-->
-                                     </div>
-                                  </div>
-                                </div>
+                        </div>
               </p-accordionTab>
            </p-accordion>
 

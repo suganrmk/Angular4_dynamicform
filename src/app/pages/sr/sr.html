@@ -1,12 +1,12 @@
 <section class="content">
     <div class="formContainer">
-        <form [formGroup]="rForm" #form (ngSubmit)="onSubmit(rForm.value)">
+        <form [formGroup]="rForm" *ngIf='SRList' #form (ngSubmit)="onSubmit()">
             <p-accordion>
-                <p-accordionTab formGroupName="statusReporting" header="Status ReportRisk Management Owner"
+                <p-accordionTab formGroupName="statusReportPlan" header="Status Report Plan"
                                 [selected]="true" style="width: 100%;">
                     <div class="applicable">
                         <input (click)='chk($event)' id="appli" 
-                               formControlName="applicable" 
+                               formControlName="applicable" [(ngModel)]="SRList.statusReportPlan.applicable"
                                type="checkbox">
                         <label for="appli">Applicable
                             <div class="ckb">
@@ -20,7 +20,7 @@
                                 <label for="formGroupExampleInput">Status Report Pattern - Enable 2.0?</label>
                                 <input type="text" class="form-control" pInputText
                                        placeholder="Status Report Pattern (Required)"
-                                       formControlName="statusReportPattern"/>
+                                       formControlName="statusReportPattern" [(ngModel)]="SRList.statusReportPlan.statusReportPattern"/>
                             </div>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                                 <label for="formGroupExampleInput">Status Tracking</label>
                                 <input type="text" class="form-control" pInputText
                                        placeholder="Status Tracking (Required)"
-                                       formControlName="statusTracking"/>
+                                       formControlName="statusTracking" [(ngModel)]="SRList.statusReportPlan.statusTracking"/>
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                                 <label for="formGroupExampleInput">Status Communication Mode</label>
                                 <input type="text" class="form-control" pInputText
                                        placeholder="Status Communication Mode (Required)"
-                                       formControlName="statusCommunicationMode"/>
+                                       formControlName="statusCommunicationMode" [(ngModel)]="SRList.statusReportPlan.statusCommunicationMode"/>
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                                 <label for="formGroupExampleInput">PMO Dashboard Update</label>
                                 <input type="text" class="form-control" pInputText
                                        placeholder="PMO Dashboard Update (Required)"
-                                       formControlName="pmoDashboardUpdate"/>
+                                       formControlName="pmoDashboardUpdate" [(ngModel)]="SRList.statusReportPlan.pmoDashboardUpdate"/>
                             </div>
                         </div>
                     </div>

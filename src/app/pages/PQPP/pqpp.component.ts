@@ -16,7 +16,7 @@ import {Employee } from '../../providers/commonServices';
  
 
 
-export class PQPP_Component   implements OnInit , OnChanges{
+export class PQPPComponent   implements OnInit {
   myform: FormGroup;
   Project:String ;
   Cam1: string;
@@ -28,17 +28,18 @@ export class PQPP_Component   implements OnInit , OnChanges{
   PRList:any;
 
   editForm: FormGroup;
-  frequency: FormControl;
-  TeamReviewpeerReview: FormControl;
-  GDCReview: FormControl;
-  EnableReview: FormControl;
-  ReviewComentTracking: FormControl;
+  defectMetricsGoal: FormControl;
+  prodctvtyMetricsGoal: FormControl;
+  qualityMetricsGoal: FormControl;
+  reviewStatus: FormControl;
+  testMetricsGoal: FormControl;
   Automation: FormControl;
   ReviewTaskTracking: FormControl;
-  ReviewCriteria: FormControl;
-  ReviewPlanTracking: FormControl;
-
-   
+  prjctImprvmntPlan: FormControl;
+  spcAnalysis: FormControl;
+  sqaAuditCycle: FormControl;
+  wrkPrdctAudit: FormControl;
+  intrnlProcessAudit: FormControl;
    
    
   constructor( private _fb: FormBuilder , private commonAPIservice: commonAPIservice) {
@@ -53,33 +54,38 @@ export class PQPP_Component   implements OnInit , OnChanges{
 
 
 
-this.frequency = new FormControl('', Validators.compose([Validators.required]));
-this.TeamReviewpeerReview = new FormControl('', Validators.compose([Validators.required]));
-this.GDCReview = new FormControl('', Validators.compose([Validators.required]));
-this.EnableReview = new FormControl('', Validators.compose([Validators.required]));
-this.ReviewComentTracking = new FormControl('', Validators.compose([Validators.required]));
-this.Automation = new FormControl('', Validators.compose([Validators.required]));
-this.ReviewTaskTracking = new FormControl('', Validators.compose([Validators.required]));
-this.ReviewCriteria = new FormControl('', Validators.compose([Validators.required]));
-this.ReviewPlanTracking = new FormControl('', Validators.compose([Validators.required]));
+this.defectMetricsGoal = new FormControl('', Validators.compose([Validators.required]));
+this.prodctvtyMetricsGoal = new FormControl('', Validators.compose([Validators.required]));
+this.qualityMetricsGoal = new FormControl('', Validators.compose([Validators.required]));
+this.reviewStatus = new FormControl('', Validators.compose([Validators.required]));
+this.testMetricsGoal = new FormControl('', Validators.compose([Validators.required]));
+this.prjctImprvmntPlan = new FormControl('', Validators.compose([Validators.required]));
+this.spcAnalysis = new FormControl('', Validators.compose([Validators.required]));
+this.sqaAuditCycle = new FormControl('', Validators.compose([Validators.required]));
+this.wrkPrdctAudit = new FormControl('', Validators.compose([Validators.required]));
+
 
 
 
 
 
 this.rForm = this._fb.group({
-              "continuosCodeReview" : this._fb.group({
-                'frequency': this.frequency,
-                'TeamReviewpeerReview': this.TeamReviewpeerReview,
-                'GDCReview': this.GDCReview,
-                'EnableReview': this.EnableReview,
-                'ReviewComentTracking': this.ReviewComentTracking,
-                'Automation': this.Automation
+              "pqppMetricsCollection" : this._fb.group({
+                'defectMetricsGoal': this.defectMetricsGoal,
+                'prodctvtyMetricsGoal': this.prodctvtyMetricsGoal,
+                'qualityMetricsGoal': this.qualityMetricsGoal,
+                'reviewStatus': this.reviewStatus,
+                'testMetricsGoal': this.testMetricsGoal
               }),
-              "peerReviewPlan" : this._fb.group({
-                'ReviewTaskTracking': this.Automation,
-                'ReviewCriteria': this.Automation,
-                'ReviewPlanTracking': this.Automation
+              "pqppSpcAnalysis" : this._fb.group({
+                'spcAnalysis': this.spcAnalysis,
+              }),
+              "pqppProcessPrfmncModel" : this._fb.group({
+                'prjctImprvmntPlan': this.prjctImprvmntPlan,
+                'sqaAuditCycle': this.sqaAuditCycle,
+                'wrkPrdctAudit': this.wrkPrdctAudit,
+                'intrnlProcessAudit': this.intrnlProcessAudit,
+                
               })
 });
 
@@ -90,43 +96,22 @@ this.rForm = this._fb.group({
 
 
    }
-     ngOnChanges() {
-   //   this.formSet();
-     }
-
-   ngOnInit() {
- //    this.commonAPIservice.getSqa('/loadEmployee').subscribe(  (res) => this.PRList = res);
-     
-
-     
-
- 
-    this.myform = new FormGroup({
-     
-     Project: new FormControl('', [ Validators.required]),
-     Cam1: new FormControl('', [ Validators.required]),
-     Cam2: new FormControl('', [ Validators.required]),
-     SEPGApprover: new FormControl('', [ Validators.required]),
-     AccountName: new FormControl('', [ Validators.required]),
-          
+    ngOnInit() { 
+    this.commonAPIservice.getSqa('/v-ptd/loadPtd?projectId=1&auditVersion=1').subscribe(  (res) => {
+      this.PRList = res.entity ; 
     });
+  }
 
+  onSubmit(){
+    this.commonAPIservice.update('/v-ptd/merge?userId=1&projectId=1&version=1' , this.PRList).subscribe(
+      (res) => {
+        alert('updated Sucessfully');
+    });
+  }
 
-
-  
-
-
-   }
-
-   onSubmit(post){
-   //console.log(post);
-   console.log(this.PRList);
-
-   }
-
-
-
- 
+  chk(event){
+    console.log(event)
+   
+  }
 
 }
-

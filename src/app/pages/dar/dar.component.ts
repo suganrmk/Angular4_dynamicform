@@ -55,13 +55,15 @@ export class DARComponent   implements OnInit , OnChanges{
   ngOnInit() {
     this.commonAPIservice.getSqa('/v-ptd/loadPtd?projectId=1&auditVersion=1').subscribe(  (res) => {
       this.DARList = res.entity ; 
-      debugger;
     });
    
   }
 
-  onSubmit(post){
-    this.commonAPIservice.update('/v-ptd/merge?userId=1&projectId=1&version=1' , this.DARList).subscribe();
+ onSubmit(){
+    this.commonAPIservice.update('/v-ptd/merge?userId=1&projectId=1&version=1' , this.DARList).subscribe(
+      (res) => {
+        alert('updated Sucessfully');
+    });
   }
 
   chk(event){

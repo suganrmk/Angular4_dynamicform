@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as $ from 'jquery';
 
 @Component({
@@ -8,7 +9,9 @@ import * as $ from 'jquery';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) {}
 
   ngOnInit() {
     var passEncode = 'passprft123';
@@ -33,6 +36,9 @@ export class LoginComponent implements OnInit {
 					//document.cookie = 'JSESSIONID = '+resp.mobileResponse+'; path: /';
           document.cookie = 'JSESSIONID='+resp.mobileResponse+'; path=/';
 					window.localStorage.setItem("JSESSIONID", resp.mobileResponse);
+          var url = window.location.href
+          var newURL = url.replace('/login', '');
+          window.location.replace(newURL);
 					console.log('redirecting to home page happens...'); // re route back to home page
         }
 			  },

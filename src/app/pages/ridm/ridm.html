@@ -8,60 +8,71 @@
 
 
    <div class="formContainer">
-        <form>
+        <form [formGroup]="rForm" *ngIf='RIDM_List' #form (ngSubmit)="onSubmit()">
 
        <p-accordion>
-          <p-accordionTab formGroupName="RID"  header="Risks, Issues, Dependencies Tracking" [selected]="true">
-
+          <p-accordionTab formGroupName="riskIssuesDependencyTracking"  header="Risks, Issues, Dependencies Tracking" [selected]="true">
+            <div class="applicable">
+              <input (click)='chk($event)' id="appli"  [(ngModel)] = "RIDM_List.riskIssuesDependencyTracking.applicable" formControlName="applicable" [checked]="RIDM_List.riskIssuesDependencyTracking.applicable" type="checkbox">
+              <label for="appli">Applicable
+                <div class="ckb">
+                <i class="fa fa-check"></i>
+                </div>
+              </label>
+            </div>
              <div class="row">
               <div class="col-md-4">
                    <div class="form-group required">
                       <label for="formGroupExampleInput">Risk Management Owner</label>
-                      <input type="text" class="form-control"  pInputText placeholder="" />
+                      <input type="text" class="form-control"  formControlName="riskMgmtOwn" [(ngModel)] = "RIDM_List.riskIssuesDependencyTracking.riskMgmtOwn" pInputText placeholder="" />
                      <!--<control-messages [control]="rForm.controls.continuosCodeReview.controls.frequency"></control-messages>-->
                    </div>
                 </div>
                   <div class="col-md-4">
                    <div class="form-group">
                       <label for="formGroupExampleInput">Risk Tracking System</label>
-                      <input type="text" class="form-control"  pInputText />
+                      <input type="text" class="form-control" formControlName="riskTrkSys" [(ngModel)] = "RIDM_List.riskIssuesDependencyTracking.riskTrkSys" class="form-control" pInputText />
                    </div>
                 </div>
              <div class="col-md-4">
                    <div class="form-group">
                       <label for="formGroupExampleInput">Enable 2.0 Risk Process or Tailored </label>
-                      <input type="text" class="form-control"  pInputText />
+                      <input type="text" formControlName="enable2RiskProcess" [(ngModel)] = "RIDM_List.riskIssuesDependencyTracking.enable2RiskProcess" class="form-control"  pInputText />
                    </div>
                 </div>
                 <div class="col-md-4">
                    <div class="form-group">
                       <label for="formGroupExampleInput">Criteria for Updating Risk in PMO Dashboard</label>
-                      <input type="text" class="form-control"  pInputText />
+                      <input type="text" formControlName="criteriaforRiskPMO" [(ngModel)] = "RIDM_List.riskIssuesDependencyTracking.criteriaforRiskPMO" class="form-control"  pInputText />
                    </div>
                 </div>
                 <div class="col-md-4">
                    <div class="form-group">
                       <label for="formGroupExampleInput">Risk Tracking Frequency</label>
-                      <input type="text" class="form-control"  pInputText />
+                      <input type="text" formControlName="riskTrkFreq" [(ngModel)] = "RIDM_List.riskIssuesDependencyTracking.riskTrkFreq" class="form-control"  pInputText />
                    </div>
                 </div>
                 <div class="col-md-4">
                    <div class="form-group">
                       <label for="formGroupExampleInput">Organization Risk Included</label>
-                      <input type="text" class="form-control"  pInputText />
+                      <input type="text" formControlName="orgRiskIncl" [(ngModel)] = "RIDM_List.riskIssuesDependencyTracking.orgRiskIncl" class="form-control"  pInputText />
                    </div>
                 </div>
                 <div class="col-md-4">
                    <div class="form-group">
                       <label for="formGroupExampleInput">Known Risks</label>
-                      <input type="text" class="form-control"  pInputText />
+                      <input type="text" formControlName="knownRisk" [(ngModel)] = "RIDM_List.riskIssuesDependencyTracking.knownRisk" class="form-control"  pInputText />
                    </div>
                 </div>
                 <div class="col-md-4">
                    <div class="form-group">
                       <label for="formGroupExampleInput">Comments</label>
-                      <input type="text" class="form-control"  pInputText />
+                      <input type="text" formControlName="comments" [(ngModel)] = "RIDM_List.riskIssuesDependencyTracking.comments" class="form-control"  pInputText />
                    </div>
+                </div>
+                <div class="col-md-12 text-right">
+                   <input type="submit" class="btn btn-success"  value="Save" >
+                  <button class="btn btn-default">Cancel</button>
                 </div>
              </div>
           </p-accordionTab>

@@ -1,5 +1,5 @@
 .main-header {
-  position: relative;
+  position: fixed;
   max-height: 100px;
   z-index: 1030;
 }
@@ -35,6 +35,9 @@ html, body, .wrapper {
   margin: 0;
   background-color: #222d32;
   padding: 0;
+  position: fixed;
+  width: 70px;
+  height: 100vh;
 }
 .sidebar-menu > li {
   position: relative;
@@ -56,6 +59,7 @@ html, body, .wrapper {
   width: calc(100% - 70px);
   float: right;
   padding: 20px;
+  margin-top: 50px;
 }
 
 .main-sidebar {
@@ -121,13 +125,19 @@ p-accordiontab .form-control {
 
 p-accordiontab + p-accordiontab {
   margin-left: 10px;
+  margin-bottom: 15px;
+}
+
+p-accordiontab + p-accordiontab + p-accordiontab + p-accordiontab {
+  margin-left: 0px;
+  margin-top: -10px;
 }
 
 body .ui-accordion .ui-accordion-content {
   padding: 1.25em;
 }
 
-.sidebar-menu > li a.active {
+.sidebar-menu > li a.active, .sidebar-menu > li a:hover {
   background: #008749;
 }
 .sidebar-menu > li a label {
@@ -141,10 +151,15 @@ body .ui-accordion .ui-accordion-content {
 .col-md-6 p-accordiontab {
   margin: 0;
   width: 100%;
+  margin-bottom: 10px;
 }
 
 body .ui-accordion .ui-accordion-header, body .ui-accordion .ui-accordion-header.ui-state-active {
   background-color: #606f75;
+}
+
+.parentMenu .menu2 {
+  display: none;
 }
 
 .required label:after {
@@ -240,6 +255,78 @@ input#appli2:checked + label .fa {
   /* border: 1px solid #ccc; */
   opacity: 0;
   float: left;
+}
+
+fieldinput {
+  float: left;
+  width: 100%;
+}
+
+.loading {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 9999;
+  text-align: center;
+  padding: 18% 0 0 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.81);
+}
+.loading > img {
+  width: 50px;
+  height: 50px;
+}
+
+span.lodtext {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  color: #fff;
+  font-size: 18px;
+}
+
+Loader {
+  display: none;
+}
+
+.ShowModal Loader {
+  display: block;
+}
+
+.form-group label[for="formGroupExampleInput"] {
+  max-width: 36%;
+}
+
+.menu1 label .fa {
+  font-size: 16px;
+  color: #fff;
+  margin: 0 0 0 14px;
+}
+
+span.ptd-tooltip {
+  background: rgba(0, 0, 0, 0.83);
+  color: #fff;
+  position: absolute;
+  left: 76px;
+  border-radius: 3px;
+  padding: 3px 20px;
+  display: none;
+  top: 6px;
+  white-space: nowrap;
+}
+span.ptd-tooltip:before {
+  display: inline-block;
+  content: "\f0d9";
+  font: normal normal normal 23px/1 FontAwesome;
+  position: absolute;
+  color: rgba(0, 0, 0, 0.83);
+  left: -7px;
+  top: 3px;
+}
+
+.treeview:hover span.ptd-tooltip {
+  display: block;
 }
 
 body .fullprocessView > .ui-accordion > p-accordiontab {

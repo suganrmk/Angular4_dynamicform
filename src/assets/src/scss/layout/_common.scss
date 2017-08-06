@@ -76,3 +76,78 @@ input#appli2:checked + label .fa {
     float: left;
 }
 }
+
+fieldinput{
+    float: left;
+    width: 100%;
+}
+
+
+.loading{
+position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+    text-align: center;
+    padding: 18% 0 0 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.81);
+
+        > img{
+            width:50px;
+            height:50px;
+        }
+}
+span.lodtext {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    font-size: 18px;
+}
+Loader{
+    display: none;
+}
+
+.ShowModal Loader{
+    display: block
+}
+.form-group label[for="formGroupExampleInput"] {
+    max-width: 36%;
+}
+
+
+.menu1 label .fa{
+      font-size: 16px;
+    color: #fff;
+    margin: 0 0 0 14px;
+}
+
+span.ptd-tooltip {
+    background: rgba(0, 0, 0, 0.83);
+    color: #fff;
+    position: absolute;
+    left: 76px;
+    border-radius: 3px;
+    padding: 3px 20px;
+    display: none;
+    top: 6px;
+    white-space: nowrap;
+
+    &:before {
+    display: inline-block;
+    content: "\f0d9";
+    font: normal normal normal 23px/1 FontAwesome;
+    position: absolute;
+    color: rgba(0, 0, 0, 0.83);
+    left: -7px;
+    top: 3px;
+  }
+}
+
+.treeview:hover{
+    span.ptd-tooltip{
+        display: block;
+    }
+}

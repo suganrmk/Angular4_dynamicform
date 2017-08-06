@@ -16,45 +16,29 @@ import{ValidationService , ControlMessagesComponent} from '../../providers/valid
 
 
 export class PRComponent   implements OnInit{
-  @Input() pageTitle: string = "Peer Review2";
-  rForm: FormGroup;
-  PRList:any;
-  continuosCodeReview:any;
-  frequency: FormControl;
-  TeamReviewpeerReview: FormControl;
-  GDCReview: FormControl;
-  EnableReview: FormControl;
-  ReviewComentTracking: FormControl;
-  Automation: FormControl;
-  ReviewTaskTracking: FormControl;
-  ReviewCriteria: FormControl;
-  ReviewPlanTracking: FormControl;
-  applicable: FormControl;
-  applicable2: FormControl;
-@Output() notify: EventEmitter<Boolean> = new EventEmitter<Boolean>();
+  @Input() pageTitle   : string = "Peer Review2";
+  @Input() test: any;
+  rForm                : FormGroup;
+  PRList               : any;
+  continuosCodeReview  : any;
+  frequency            : FormControl;
+  TeamReviewpeerReview : FormControl;
+  GDCReview            : FormControl;
+  EnableReview         : FormControl;
+  ReviewComentTracking : FormControl;
+  Automation           : FormControl;
+  ReviewTaskTracking   : FormControl;
+  ReviewCriteria       : FormControl;
+  ReviewPlanTracking   : FormControl;
+  applicable           : FormControl;
+  applicable2          : FormControl;
+  subprocess1          : any;
+  subprocess2          : any;
+  
+display: boolean
 
-
- public result:any;
- public result2:any;
- 
-  heros:any;
  constructor( private _fb: FormBuilder , private commonAPIservice: commonAPIservice , private http: Http) {
-  this.notify.emit(true);
-  this.result = 'working';
-this.result2 ="testing";
-
-this.heros = [
-  {
-  result:'working',
-  frequency: 'frequency'
-},
-  {
-  result:'checckings',
-  frequency: 'frequencys'
-}
-
-]
-
+  
 
   this.frequency            = new FormControl('', Validators.compose([Validators.required]));
   this.TeamReviewpeerReview = new FormControl('', Validators.compose([Validators.required]));
@@ -97,25 +81,72 @@ this.heros = [
 
 
   ngOnInit() { 
-    this.commonAPIservice.getSqa('/v-ptd/loadPtd?projectId=1&auditVersion=1').subscribe(  (res) => {
-      this.PRList = res.entity ; 
+    console.log(this.test)
+
+    this.commonAPIservice.get().subscribe(  (res) => {
+    this.PRList = res.entity ; 
+     
+     if(this.PRList){
+     this.subprocess1 = [
+          {
+            fieldvalue:this.PRList.continuosCodeReview.frequency,
+            fieldtext: 'frequency',
+            control:'frequency'
+          },
+          {
+            fieldvalue:this.PRList.continuosCodeReview.teamPeerReview,
+            fieldtext: 'Team Review/Peer Review',
+            control:'TeamReviewpeerReview'
+          },
+          {
+            fieldvalue:this.PRList.continuosCodeReview.reviewFromGDC,
+            fieldtext: 'Reviewer from GDC',
+            control:'GDCReview'
+          },
+          {
+            fieldvalue:this.PRList.continuosCodeReview.enableLatestReviewTemplate,
+            fieldtext: 'Enable 2.0 Review Template',
+            control:'EnableReview'
+          },
+          {
+            fieldvalue:this.PRList.continuosCodeReview.reviewCommentTracking,
+            fieldtext: 'Review Comment Tracking',
+            control:'ReviewComentTracking'
+          },
+          {
+            fieldvalue:this.PRList.continuosCodeReview.automated,
+            fieldtext: 'Manual/Automated',
+            control:'Automation'
+          }
+      ];
+      
+      this.subprocess2 = [
+              {
+              fieldvalue:this.PRList.peerReviewPlan.reviewTimeTracking,
+              fieldtext: 'Review Task Tracking',
+              control:'ReviewTaskTracking'
+            },
+            {
+              fieldvalue:this.PRList.peerReviewPlan.reviewCriteriaDefinedBy,
+              fieldtext: 'Review Criteria Defined by',
+              control:'ReviewCriteria'
+            },
+            {
+              fieldvalue:this.PRList.peerReviewPlan.reviewPalnTrackingSystem,
+              fieldtext: 'Review Plan Tracking System',
+              control:'ReviewPlanTracking'
+            }
+        ]
+    }
     });
   }
 
   onSubmit(event , a , form){
-    console.log(event , a , form)
     this.commonAPIservice.update('/v-ptd/merge?userId=1&projectId=1&version=1' , this.PRList).subscribe(
       (res) => {
         alert('updated Sucessfully');
     });
   }
-
-  chk(event){
-    console.log(event)
-   
-  }
-
-
 
 }
 

@@ -1,65 +1,49 @@
- <!-- Main content -->
- 
-      <!-- /.content -->
 
-       <!-- Main content -->
       <section class="content">
         
     
     <div class="formContainer">
-         <form [formGroup]="rForm" (ngSubmit)="onSubmit(rForm.value)">
+         <form [formGroup]="rForm" *ngIf='PRList' (ngSubmit)="onSubmit(rForm.value)">
           
                   <p-accordion>
                     <div class="row">
                     <div class="col-md-6">
-                     <p-accordionTab formGroupName="continuosCodeReview"  header="Metrics Collection" [selected]="true">
+                     <p-accordionTab formGroupName="pqppMetricsCollection"  header="Metrics Collection" [selected]="true">
                         <div class="row">
-                         <div class="col-md-4">
-                              <div class="form-group">
-                                 <label for="formGroupExampleInput">Hand-off Responsibility GDC?</label>
-                                 <input type="text" class="form-control"  pInputText placeholder="Title (required)"
-                                  [(ngModel)] = "PRList.continuosCodeReview.frequency"
-                                formControlName="frequency" />
-                              </div>
-                           </div>
-                             <div class="col-md-4">
-                              <div class="form-group">
-                                 <label for="formGroupExampleInput">Manual or Help Document</label>
-                                 <input type="text" class="form-control"  pInputText 
-                                 [(ngModel)] = "PRList.continuosCodeReview.teamPeerReview"
-                                 formControlName="TeamReviewpeerReview" >
-                              </div>
-                           </div>
-                      
-                        
-                        </div>
+                            <fieldInput  [(ngModel)]="PRList.pqppMetricsCollection.defectMetricsGoal"  fieldlabel="Defect Metrics Goal" formControlName="defectMetricsGoal"></fieldInput>
+                            <fieldInput  [(ngModel)]="PRList.pqppMetricsCollection.prodctvtyMetricsGoal"  fieldlabel="Productivity Metrics Goal" formControlName="prodctvtyMetricsGoal"></fieldInput>
+                            <fieldInput  [(ngModel)]="PRList.pqppMetricsCollection.qualityMetricsGoal"  fieldlabel="Quality Metrics Goal" formControlName="qualityMetricsGoal"></fieldInput>
+                            <fieldInput  [(ngModel)]="PRList.pqppMetricsCollection.reviewStatus"  fieldlabel="Review Status" formControlName="reviewStatus"></fieldInput>
+                            <fieldInput  [(ngModel)]="PRList.pqppMetricsCollection.testMetricsGoal"  fieldlabel="test Metrics Goal" formControlName="testMetricsGoal"></fieldInput>
+                            
+                          </div>
                         
                      </p-accordionTab>
-                     <p-accordionTab formGroupName="peerReviewPlan"  [selected]="true" header="SPC Analysis">
+                      <p-accordionTab formGroupName="pqppSpcAnalysis"  [selected]="true" header="SPC Analysis">
                         <div class="row">
                            <div class="col-md-4">
                               <div class="form-group">
                                  <label for="formGroupExampleInput">SPC Analysis</label>
                                  <input type="text" class="form-control"  pInputText 
-                                    [(ngModel)] = "PRList.peerReviewPlan.reviewTimeTracking"
-                                 formControlName="ReviewTaskTracking">
+                                    [(ngModel)] = "PRList.pqppSpcAnalysis.spcAnalysis"
+                                 formControlName="spcAnalysis">
                               </div>
                            </div>
                         
                         </div>
                        
 
-                     </p-accordionTab>
+                     </p-accordionTab> 
                     </div>
-                    <div class="col-md-6">
-                      <p-accordionTab formGroupName="peerReviewPlan"  [selected]="true" header="Process Performance Model">
+                     <div class="col-md-6">
+                      <p-accordionTab formGroupName="pqppProcessPrfmncModel"  [selected]="true" header="Process Performance Model">
                         <div class="row">
                            <div class="col-md-4">
                               <div class="form-group">
                                  <label for="formGroupExampleInput">Project Improvement Plan </label>
                                  <input type="text" class="form-control"  pInputText 
-                                    [(ngModel)] = "PRList.peerReviewPlan.reviewTimeTracking"
-                                 formControlName="ReviewTaskTracking">
+                                    [(ngModel)] = "PRList.pqppProcessPrfmncModel.prjctImprvmntPlan"
+                                 formControlName="prjctImprvmntPlan">
                               </div>
                            </div>
 
@@ -67,8 +51,8 @@
                               <div class="form-group">
                                  <label for="formGroupExampleInput">SQA Audit Cycle </label>
                                  <input type="text" class="form-control"  pInputText 
-                                    [(ngModel)] = "PRList.peerReviewPlan.reviewTimeTracking"
-                                 formControlName="ReviewTaskTracking">
+                                    [(ngModel)] = "PRList.pqppProcessPrfmncModel.sqaAuditCycle"
+                                 formControlName="sqaAuditCycle">
                               </div>
                            </div>
 
@@ -76,8 +60,8 @@
                               <div class="form-group">
                                  <label for="formGroupExampleInput">Work Product Audit </label>
                                  <input type="text" class="form-control"  pInputText 
-                                    [(ngModel)] = "PRList.peerReviewPlan.reviewTimeTracking"
-                                 formControlName="ReviewTaskTracking">
+                                    [(ngModel)] = "PRList.pqppProcessPrfmncModel.wrkPrdctAudit"
+                                 formControlName="wrkPrdctAudit">
                               </div>
                            </div>
 
@@ -85,8 +69,8 @@
                               <div class="form-group">
                                  <label for="formGroupExampleInput">Internal Process Audit </label>
                                  <input type="text" class="form-control"  pInputText 
-                                    [(ngModel)] = "PRList.peerReviewPlan.reviewTimeTracking"
-                                 formControlName="ReviewTaskTracking">
+                                    [(ngModel)] = "PRList.pqppProcessPrfmncModel.intrnlProcessAudit"
+                                 formControlName="intrnlProcessAudit">
                               </div>
                            </div>
                         
@@ -100,7 +84,7 @@
                         </div>
 
                      </p-accordionTab>
-                    </div>
+                    </div> 
                     </div>
                     
                   </p-accordion>

@@ -28,6 +28,10 @@ import com.perficient.hr.model.RiskIssuesDependencyTracking;
 import com.perficient.hr.model.SQA;
 import com.perficient.hr.model.ScopeChangeLog;
 import com.perficient.hr.model.ScopeChangeRequest;
+import com.perficient.hr.model.StatusReportPlan;
+import com.perficient.hr.model.TestCase;
+import com.perficient.hr.model.TestPlan;
+import com.perficient.hr.model.TestReport;
 import com.perficient.hr.model.TraceabilityMatrix;;
 
 
@@ -62,7 +66,17 @@ public class PtdResponseTO {
 	private PqppSpcAnalysis pqppSpcAnalysis;
 	private ScopeChangeLog scopeChangeLog;
 	private ScopeChangeRequest scopeChangeRequest;
-	
+	private StatusReportPlan statusReportPlan;
+	private TestPlan testPlan;
+	private TestCase testCase;
+	private TestReport testReport;
+
+	public StatusReportPlan getStatusReportPlan() {
+		return statusReportPlan;
+	}
+	public void setStatusReportPlan(StatusReportPlan statusReportPlan) {
+		this.statusReportPlan = statusReportPlan;
+	}
 	public ConfigMgmtBackupRecovery getConfigMgmtBackupRecovery() {
 		return configMgmtBackupRecovery;
 	}
@@ -229,6 +243,24 @@ public class PtdResponseTO {
 	}
 	public void setCarArtifactsEntity(CarArtifactsEntity carArtifactsEntity) {
 		this.carArtifactsEntity = carArtifactsEntity;
+	}
+	public TestPlan getTestPlan() {
+		return testPlan;
+	}
+	public void setTestPlan(TestPlan testPlan) {
+		this.testPlan = testPlan;
+	}
+	public TestCase getTestCase() {
+		return testCase;
+	}
+	public void setTestCase(TestCase testCase) {
+		this.testCase = testCase;
+	}
+	public TestReport getTestReport() {
+		return testReport;
+	}
+	public void setTestReport(TestReport testReport) {
+		this.testReport = testReport;
 	}
 	
 			

@@ -80,8 +80,28 @@ public class ProjectAudit extends AbstractModel {
 	
 	@OneToOne(mappedBy = "projectAudit")
 	private ScopeChangeRequest scopeChangeRequest;
-
 	
+	@OneToOne(mappedBy = "projectAudit")
+	private StatusReportPlan statusReportPlan;
+
+	@OneToOne(mappedBy = "projectAudit")
+	private TestCase testCase;
+
+	@OneToOne(mappedBy = "projectAudit")
+	private TestPlan testPlan;
+
+	@OneToOne(mappedBy = "projectAudit")
+	private TestReport testReport;
+
+
+	public StatusReportPlan getStatusReportPlan() {
+		return statusReportPlan;
+	}
+
+	public void setStatusReportPlan(StatusReportPlan statusReportPlan) {
+		this.statusReportPlan = statusReportPlan;
+	}
+
 	public ConfigMgmtBackupRecovery getConfigMgmtBackupRecovery() {
 		return configMgmtBackupRecovery;
 	}
@@ -319,4 +339,30 @@ public class ProjectAudit extends AbstractModel {
 	public void setRiskIssuesDependencyTracking(RiskIssuesDependencyTracking riskIssuesDependencyTracking) {
 		this.riskIssuesDependencyTracking = riskIssuesDependencyTracking;
 	}
+
+	public TestCase getTestCase() {
+		return testCase;
+	}
+
+	public void setTestCase(TestCase testCase) {
+		this.testCase = testCase;
+	}
+
+	public TestPlan getTestPlan() {
+		return testPlan;
+	}
+
+	public void setTestPlan(TestPlan testPlan) {
+		this.testPlan = testPlan;
+	}
+
+	public TestReport getTestReport() {
+		return testReport;
+	}
+
+	public void setTestReport(TestReport testReport) {
+		this.testReport = testReport;
+	}
+	
+	
  }

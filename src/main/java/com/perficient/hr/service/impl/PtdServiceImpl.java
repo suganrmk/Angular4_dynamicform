@@ -36,11 +36,15 @@ import com.perficient.hr.model.PqppMetricsCollection;
 import com.perficient.hr.model.PqppProcessPrfmncModel;
 import com.perficient.hr.model.PqppSpcAnalysis;
 import com.perficient.hr.model.Process;
-	import com.perficient.hr.model.ProjectAudit;
+import com.perficient.hr.model.ProjectAudit;
 import com.perficient.hr.model.ProjectPlanningTaskTrackingEntity;
 import com.perficient.hr.model.RiskIssuesDependencyTracking;
 import com.perficient.hr.model.ScopeChangeLog;
 import com.perficient.hr.model.ScopeChangeRequest;
+import com.perficient.hr.model.StatusReportPlan;
+import com.perficient.hr.model.TestCase;
+import com.perficient.hr.model.TestPlan;
+import com.perficient.hr.model.TestReport;
 import com.perficient.hr.model.TraceabilityMatrix;
 import com.perficient.hr.to.PtdResponseTO;
 	import com.perficient.hr.service.PtdService;
@@ -290,6 +294,42 @@ import com.perficient.hr.to.PtdResponseTO;
 						ptdResponseTO.getScopeChangeRequest().setModifiedBy(Long.parseLong(userId));
 						pdtDao.save(ptdResponseTO.getScopeChangeRequest(), session);
 					}
+					
+					if(ptdResponseTO.getStatusReportPlan().isApplicable()){
+						ptdResponseTO.getStatusReportPlan().setProjectAuditId(projectAudit.getPk());
+						ptdResponseTO.getStatusReportPlan().setCreatedBy(Long.parseLong(userId));
+						ptdResponseTO.getStatusReportPlan().setDtCreated(new Date());
+						ptdResponseTO.getStatusReportPlan().setDtModified(new Date());
+						ptdResponseTO.getStatusReportPlan().setModifiedBy(Long.parseLong(userId));
+						pdtDao.save(ptdResponseTO.getStatusReportPlan(), session);
+					}
+					
+					if(ptdResponseTO.getTestPlan().isApplicable()){
+						ptdResponseTO.getTestPlan().setProjectAuditId(projectAudit.getPk());
+						ptdResponseTO.getTestPlan().setCreatedBy(Long.parseLong(userId));
+						ptdResponseTO.getTestPlan().setDtCreated(new Date());
+						ptdResponseTO.getTestPlan().setDtModified(new Date());
+						ptdResponseTO.getTestPlan().setModifiedBy(Long.parseLong(userId));
+						pdtDao.save(ptdResponseTO.getTestPlan(), session);
+					}
+					
+					if(ptdResponseTO.getTestCase().isApplicable()){
+						ptdResponseTO.getTestCase().setProjectAuditId(projectAudit.getPk());
+						ptdResponseTO.getTestCase().setCreatedBy(Long.parseLong(userId));
+						ptdResponseTO.getTestCase().setDtCreated(new Date());
+						ptdResponseTO.getTestCase().setDtModified(new Date());
+						ptdResponseTO.getTestCase().setModifiedBy(Long.parseLong(userId));
+						pdtDao.save(ptdResponseTO.getTestCase(), session);
+					}
+					
+					if(ptdResponseTO.getTestReport().isApplicable()){
+						ptdResponseTO.getTestReport().setProjectAuditId(projectAudit.getPk());
+						ptdResponseTO.getTestReport().setCreatedBy(Long.parseLong(userId));
+						ptdResponseTO.getTestReport().setDtCreated(new Date());
+						ptdResponseTO.getTestReport().setDtModified(new Date());
+						ptdResponseTO.getTestReport().setModifiedBy(Long.parseLong(userId));
+						pdtDao.save(ptdResponseTO.getTestReport(), session);
+					}
 				}
 				tx.commit();
 			} catch (Exception e) {
@@ -340,6 +380,10 @@ import com.perficient.hr.to.PtdResponseTO;
 					ptdResponseTO.setPqppSpcAnalysis(projectAudit.getPqppSpcAnalysis());
 					ptdResponseTO.setScopeChangeLog(projectAudit.getScopeChangeLog());
 					ptdResponseTO.setScopeChangeRequest(projectAudit.getScopeChangeRequest());
+					ptdResponseTO.setStatusReportPlan(projectAudit.getStatusReportPlan());
+					ptdResponseTO.setTestPlan(projectAudit.getTestPlan());
+					ptdResponseTO.setTestCase(projectAudit.getTestCase());
+					ptdResponseTO.setTestReport(projectAudit.getTestReport());
 					ptdResponseTO.setProjectAudit(projectAudit);
 				}
 				procesList = (List<Process>) pdtDao.loadProcess(session);
@@ -447,6 +491,22 @@ import com.perficient.hr.to.PtdResponseTO;
 					
 					if(ptdResponseTO.getScopeChangeRequest().isApplicable()){
 						pdtDao.merge(ptdResponseTO.getScopeChangeRequest(), session);
+					}
+					
+					if(ptdResponseTO.getStatusReportPlan().isApplicable()){
+						pdtDao.merge(ptdResponseTO.getStatusReportPlan(), session);
+					}
+					
+					if(ptdResponseTO.getTestPlan().isApplicable()){
+						pdtDao.merge(ptdResponseTO.getTestPlan(), session);
+					}
+					
+					if(ptdResponseTO.getTestCase().isApplicable()){
+						pdtDao.merge(ptdResponseTO.getTestCase(), session);
+					}
+					
+					if(ptdResponseTO.getTestReport().isApplicable()){
+						pdtDao.merge(ptdResponseTO.getTestReport(), session);
 					}
 					tx.commit();
 				}else{
@@ -749,6 +809,54 @@ import com.perficient.hr.to.PtdResponseTO;
 					scopeChangeRequest.setDtModified(new Date());
 					scopeChangeRequest = (ScopeChangeRequest) pdtDao.save(scopeChangeRequest, session);
 					
+					StatusReportPlan statusReportPlan = new StatusReportPlan();
+					statusReportPlan.setProcess_pk(Long.parseLong(PerfHrConstants.SR_ID));
+					statusReportPlan.setProjectAuditId(projectAudit.getPk());
+					statusReportPlan.setReviewStatus(PerfHrConstants.PTD_DRAFT);
+					statusReportPlan.setApplicable(true);
+					statusReportPlan.setActive(true);
+					statusReportPlan.setCreatedBy(Long.parseLong(userId));
+					statusReportPlan.setModifiedBy(Long.parseLong(userId));
+					statusReportPlan.setDtCreated(new Date());
+					statusReportPlan.setDtModified(new Date());
+					statusReportPlan = (StatusReportPlan) pdtDao.save(statusReportPlan, session);
+					
+					TestPlan testPlan = new TestPlan();
+					testPlan.setProcess_pk(Long.parseLong(PerfHrConstants.AST_ID));
+					testPlan.setProjectAuditId(projectAudit.getPk());
+					testPlan.setReviewStatus(PerfHrConstants.PTD_DRAFT);
+					testPlan.setApplicable(true);
+					testPlan.setActive(true);
+					testPlan.setCreatedBy(Long.parseLong(userId));
+					testPlan.setModifiedBy(Long.parseLong(userId));
+					testPlan.setDtCreated(new Date());
+					testPlan.setDtModified(new Date());
+					testPlan = (TestPlan) pdtDao.save(testPlan, session);
+					
+					TestCase testCase = new TestCase();
+					testCase.setProcess_pk(Long.parseLong(PerfHrConstants.AST_ID));
+					testCase.setProjectAuditId(projectAudit.getPk());
+					testCase.setReviewStatus(PerfHrConstants.PTD_DRAFT);
+					testCase.setApplicable(true);
+					testCase.setActive(true);
+					testCase.setCreatedBy(Long.parseLong(userId));
+					testCase.setModifiedBy(Long.parseLong(userId));
+					testCase.setDtCreated(new Date());
+					testCase.setDtModified(new Date());
+					testCase = (TestCase) pdtDao.save(testCase, session);
+					
+					TestReport testReport = new TestReport();
+					testReport.setProcess_pk(Long.parseLong(PerfHrConstants.AST_ID));
+					testReport.setProjectAuditId(projectAudit.getPk());
+					testReport.setReviewStatus(PerfHrConstants.PTD_DRAFT);
+					testReport.setApplicable(true);
+					testReport.setActive(true);
+					testReport.setCreatedBy(Long.parseLong(userId));
+					testReport.setModifiedBy(Long.parseLong(userId));
+					testReport.setDtCreated(new Date());
+					testReport.setDtModified(new Date());
+					testReport = (TestReport) pdtDao.save(testReport, session);
+					
 					tx.commit();
 					
 					ptdResponseTO.setProjectAudit(projectAudit);
@@ -770,6 +878,10 @@ import com.perficient.hr.to.PtdResponseTO;
 					ptdResponseTO.setPqppSpcAnalysis(pqppSpcAnalysis);
 					ptdResponseTO.setScopeChangeLog(scopeChangeLog);
 					ptdResponseTO.setScopeChangeRequest(scopeChangeRequest);
+					ptdResponseTO.setStatusReportPlan(statusReportPlan);
+					ptdResponseTO.setTestPlan(testPlan);
+					ptdResponseTO.setTestCase(testCase);
+					ptdResponseTO.setTestReport(testReport);
 					
 				}
 			} catch (Exception e) {

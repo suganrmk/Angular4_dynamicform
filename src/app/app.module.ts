@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { ReactiveFormsModule, FormsModule, FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import {HttpModule, Http, XHRBackend, RequestOptions} from '@angular/http';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -19,7 +19,7 @@ import { AD_Component } from './pages/AD/AD.component';
 import { CM_Component } from './pages/CM/CM.component';
 import { CAR_Component} from './pages/CAR/CAR.component';
 import { HOComponent } from './pages/HO/HO.component';
-import { PQPP_Component } from './pages/pqpp/pqpp.component';
+import { PQPPComponent } from './pages/pqpp/pqpp.component';
 import { SRComponent } from './pages/sr/sr.component';
 import { DARComponent } from './pages/dar/dar.component';
 import {APMComponent} from './pages/apm/apm.component';
@@ -28,9 +28,13 @@ import{router , routes } from './main/router.component';
 import{commonAPIservice} from './providers/commonServices';
 import {httpFactory} from "./providers/http.factory";
 import{ValidationService , ControlMessagesComponent} from './providers/validationService';
- import{fieldInput} from './shared/components/formInput/fieldInput'
+import{fieldInput} from './shared/components/formInput/formInput'
 import { LoginComponent } from './pages/login/login.component';
-import {ProcessViewComponent} from './pages/Processview/ProcessView.component'
+import {Loader} from './shared/components/Loading.component';
+import {ModalComponent} from './shared/components/modal.component';
+import {ProcessViewComponent} from './pages/Processview/ProcessView.component';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
+import {MenuComponent}  from './shared/components/menu.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,7 @@ import {ProcessViewComponent} from './pages/Processview/ProcessView.component'
     projectSelectComponent,
     PRComponent,
     DMComponent,
-    PQPP_Component,
+    PQPPComponent,
     RIDM_Component,
     AD_Component,
     CM_Component,
@@ -52,7 +56,10 @@ import {ProcessViewComponent} from './pages/Processview/ProcessView.component'
     APMComponent,
     DARComponent,
     ProcessViewComponent,
-    fieldInput
+    fieldInput,
+    Loader,
+    ModalComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -76,6 +83,7 @@ import {ProcessViewComponent} from './pages/Processview/ProcessView.component'
     RatingModule,
     RadioButtonModule,
     AccordionModule,
+    AngularMultiSelectModule,
     RouterModule.forRoot(router, {useHash: false})
   ],
   providers: [
@@ -87,6 +95,7 @@ import {ProcessViewComponent} from './pages/Processview/ProcessView.component'
             deps: [XHRBackend, RequestOptions]
         }
     ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
